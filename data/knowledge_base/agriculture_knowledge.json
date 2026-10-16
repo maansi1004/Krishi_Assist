@@ -1,0 +1,56 @@
+[
+  {
+    "topic": "crop_insurance_general",
+    "keywords": ["what is crop insurance", "crop insurance", "फसल बीमा क्या है", "फसल बीमा"],
+    "answers": {
+      "en": "Crop insurance helps protect a farmer against specified crop losses covered by the applicable policy and notification. Coverage, notified crops/areas, risks and deadlines vary, so check the current official notification before enrolling.",
+      "hi": "फसल बीमा लागू पॉलिसी और अधिसूचना में शामिल जोखिमों के कारण होने वाले फसल नुकसान से सुरक्षा देता है। कौन सी फसल/क्षेत्र और कौन सी समय-सीमा लागू है, यह बदल सकता है; आवेदन से पहले वर्तमान आधिकारिक अधिसूचना देखें।",
+      "hinglish": "Crop insurance applicable policy aur notification mein covered crop losses se protection deta hai. Crop, area, risks aur deadline season ke hisaab se change ho sakte hain, isliye current official notification check karein."
+    }
+  },
+  {
+    "topic": "irrigation_general",
+    "keywords": ["irrigation", "irrigation support", "water management", "सिंचाई", "पानी की बचत"],
+    "answers": {
+      "en": "For irrigation support, first identify your water source, irrigation method and farm size. Drip or sprinkler systems can improve water-use efficiency for suitable crops. Government support depends on the state, component and current programme rules.",
+      "hi": "सिंचाई सहायता के लिए पहले पानी के स्रोत, सिंचाई विधि और खेत का आकार देखें। उपयुक्त फसलों में ड्रिप या स्प्रिंकलर पानी के उपयोग की दक्षता बढ़ा सकते हैं। सरकारी सहायता राज्य, घटक और वर्तमान योजना नियमों पर निर्भर करती है।",
+      "hinglish": "Irrigation support ke liye water source, irrigation method aur farm size dekhein. Suitable crops mein drip ya sprinkler water efficiency improve kar sakte hain. Government support state aur current scheme rules par depend karta hai."
+    }
+  },
+  {
+    "topic": "soil_health",
+    "keywords": ["soil health", "soil test", "soil testing", "मिट्टी जांच", "मृदा स्वास्थ्य"],
+    "answers": {
+      "en": "A soil test can help determine nutrient status and guide fertilizer decisions. Avoid applying nutrients only by guesswork; use the soil test and crop requirement as a basis, and follow local agricultural recommendations.",
+      "hi": "मिट्टी की जांच से पोषक तत्वों की स्थिति समझने और उर्वरक निर्णय लेने में मदद मिलती है। केवल अनुमान से उर्वरक न डालें; मिट्टी की जांच, फसल की जरूरत और स्थानीय कृषि सलाह को आधार बनाएं।",
+      "hinglish": "Soil test se nutrient status samajhne aur fertilizer decision lene mein help milti hai. Sirf guess se fertilizer na lagayein; soil test, crop requirement aur local agriculture advice ko base banayein."
+    }
+  },
+  {
+    "topic": "seeds",
+    "keywords": ["seed selection", "seeds", "good seed", "बीज", "बीज का चयन"],
+    "answers": {
+      "en": "Choose seed suited to the crop, season, local conditions and recommended variety. Check seed quality, source and label information. Scheme-specific seed assistance should be checked against the relevant scheme component and state guidance.",
+      "hi": "बीज का चयन फसल, मौसम, स्थानीय परिस्थितियों और अनुशंसित किस्म के अनुसार करें। बीज की गुणवत्ता, स्रोत और लेबल की जानकारी जांचें। योजना से मिलने वाली बीज सहायता के लिए संबंधित घटक और राज्य की वर्तमान गाइडलाइन देखें।",
+      "hinglish": "Seed crop, season aur local conditions ke hisaab se choose karein. Seed quality, source aur label check karein. Government seed support ke liye relevant scheme component aur state guidance verify karein."
+    }
+  },
+  {
+    "topic": "farm_mechanization",
+    "keywords": ["farm machinery", "farm mechanization", "tractor", "मशीनरी", "ट्रैक्टर", "मशीनीकरण"],
+    "answers": {
+      "en": "For farm machinery support, first identify the equipment and its intended use. Scheme benefits can depend on farmer category, state, equipment/model, procurement conditions and prior approval. KrishiAssist checks those conditions when they are encoded in the scheme rules.",
+      "hi": "कृषि मशीनरी सहायता के लिए पहले उपकरण और उसका उपयोग तय करें। योजना का लाभ किसान की श्रेणी, राज्य, उपकरण/मॉडल, खरीद की शर्तों और पूर्व स्वीकृति पर निर्भर हो सकता है। KrishiAssist उपलब्ध नियमों के अनुसार इन शर्तों की जांच करता है।",
+      "hinglish": "Farm machinery support ke liye equipment aur intended use identify karein. Benefit farmer category, state, equipment/model, procurement conditions aur pre-approval par depend kar sakta hai. KrishiAssist available scheme rules ke basis par check karta hai."
+    }
+  },
+  {
+    "topic": "training",
+    "keywords": ["farmer training", "agriculture training", "training", "कृषि प्रशिक्षण", "प्रशिक्षण"],
+    "answers": {
+      "en": "Farmer training can cover crop practices, machinery, post-harvest handling, farm management and new technologies. Eligibility and application channels vary by programme and state.",
+      "hi": "किसान प्रशिक्षण में फसल प्रबंधन, मशीनरी, कटाई के बाद प्रबंधन, फार्म प्रबंधन और नई तकनीक शामिल हो सकती हैं। पात्रता और आवेदन का तरीका योजना तथा राज्य के अनुसार बदलता है।",
+      "hinglish": "Farmer training mein crop practices, machinery, post-harvest, farm management aur new technology cover ho sakti hai. Eligibility aur application channel scheme aur state ke hisaab se change hota hai."
+    }
+  }
+]

@@ -1,0 +1,402 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://krishiassist.local/scheme.schema.json",
+  "title": "KrishiAssist Scheme",
+  "type": "object",
+  "required": [
+    "schemeCode",
+    "name",
+    "level",
+    "state",
+    "implementingDepartment",
+    "category",
+    "description",
+    "eligibility",
+    "benefits",
+    "documents",
+    "actionSteps",
+    "applicationChannels",
+    "officialPortals",
+    "sources",
+    "status"
+  ],
+  "properties": {
+    "schemeCode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "shortName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "central",
+        "state",
+        "district",
+        "local"
+      ]
+    },
+    "state": {
+      "type": "string",
+      "minLength": 1
+    },
+    "implementingDepartment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "eligibility": {
+      "$ref": "#/$defs/rule"
+    },
+    "exclusions": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/rule"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "verificationConditions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rule"
+      }
+    },
+    "benefits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "benefitLimits": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/benefit"
+      }
+    },
+    "coverageConditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/document"
+      }
+    },
+    "actionSteps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/actionStep"
+      }
+    },
+    "applicationChannels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "officialPortals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "targetingNotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allocationPolicy": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "geographicTargeting": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "procurementConditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rawSourceText": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "lastVerifiedAt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "verification_required"
+      ]
+    },
+    "translations": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$defs": {
+    "rule": {
+      "type": "object",
+      "oneOf": [
+        {
+          "required": [
+            "logic",
+            "conditions"
+          ],
+          "properties": {
+            "logic": {
+              "type": "string",
+              "enum": [
+                "AND",
+                "OR",
+                "NOT"
+              ]
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/rule"
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        {
+          "required": [
+            "fieldName",
+            "operator"
+          ],
+          "properties": {
+            "fieldName": {
+              "type": "string"
+            },
+            "fieldSource": {
+              "type": "string",
+              "enum": [
+                "profile",
+                "extra_attributes"
+              ]
+            },
+            "operator": {
+              "type": "string",
+              "enum": [
+                "equals",
+                "not_equals",
+                "gt",
+                "gte",
+                "lt",
+                "lte",
+                "in",
+                "not_in",
+                "exists"
+              ]
+            },
+            "expectedValue": {},
+            "criterion": {
+              "type": "string"
+            },
+            "explanation": {
+              "type": "string"
+            },
+            "remediation": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "benefit": {
+      "type": "object",
+      "required": [
+        "benefitType"
+      ],
+      "properties": {
+        "benefitType": {
+          "type": "string",
+          "enum": [
+            "percentage_or_cap",
+            "fixed_amount",
+            "descriptive"
+          ]
+        },
+        "condition": {
+          "$ref": "#/$defs/rule"
+        },
+        "percentage": {
+          "type": "number"
+        },
+        "maximumAmount": {
+          "type": "number"
+        },
+        "fixedAmount": {
+          "type": "number"
+        },
+        "basisField": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "document": {
+      "type": "object",
+      "required": [
+        "name",
+        "requiredType"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "requiredType": {
+          "type": "string",
+          "enum": [
+            "required",
+            "conditional",
+            "verification"
+          ]
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "verificationNote": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "actionStep": {
+      "type": "object",
+      "required": [
+        "step",
+        "title",
+        "description"
+      ],
+      "properties": {
+        "step": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "responsibleParty": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "online",
+            "offline",
+            "either"
+          ]
+        },
+        "dependency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "title",
+        "sourceType"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "string",
+          "enum": [
+            "official",
+            "reference",
+            "verification_required"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
