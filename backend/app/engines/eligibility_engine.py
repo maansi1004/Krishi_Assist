@@ -21,18 +21,39 @@ def get_value(profile: dict[str, Any], field: str, source: str = "profile") -> A
     return profile.get(field)
 
 
+def _norm(value: Any) -> Any:
+    """Make text comparison forgiving: 'Gujarat ', 'gujarat' and 'GUJARAT' are the same.
+
+    Underscores and hyphens count as spaces, so 'tenant_farmer' == 'Tenant Farmer'.
+    Numbers, booleans and None are returned unchanged.
+    """
+    if isinstance(value, str):
+        return " ".join(value.strip().casefold().replace("_", " ").replace("-", " ").split())
+    if isinstance(value, (list, tuple, set)):
+        return [_norm(v) for v in value]
+    return value
+
+
 def compare(actual: Any, operator: str, expected: Any = None) -> Result:
     if operator not in SUPPORTED_OPERATORS:
         raise ValueError(f"Unsupported operator: {operator}")
 
     if operator == "exists":
         # False is a valid value; only None/missing means unknown.
+        # An empty string (a blank form field) also counts as "not provided".
+        if isinstance(actual, str) and not actual.strip():
+            return Result.UNKNOWN
         return Result.PASS if actual is not None else Result.UNKNOWN
 
-    if actual is None:
+    if actual is None or (isinstance(actual, str) and not actual.strip()):
         return Result.UNKNOWN
 
     try:
+        if operator in {"equals", "not_equals", "in", "not_in"}:
+            actual = _norm(actual)
+            expected = _norm(expected)
+            if operator in {"in", "not_in"} and not isinstance(expected, list):
+                expected = [expected]
         if operator == "equals":
             return Result.PASS if actual == expected else Result.FAIL
         if operator == "not_equals":
@@ -239,6 +260,12 @@ def evaluate_scheme(scheme: dict[str, Any], profile: dict[str, Any]) -> dict[str
     else:
         status = "ELIGIBLE"
 
+    # Fix 2: a scheme whose data is still marked "verification_required" has
+    # placeholder rules. We must never tell a farmer "ELIGIBLE" on that basis.
+    unverified_scheme = scheme.get("status") == "verification_required"
+    if unverified_scheme and status in {"ELIGIBLE", "ALMOST_ELIGIBLE"}:
+        status = "VERIFICATION_REQUIRED"
+
     missing = [c["field"] for c in criteria if c["result"] == Result.UNKNOWN.value]
     failed = [c["field"] for c in criteria if c["result"] == Result.FAIL.value]
     verification_required = [c["field"] for c in exclusions if c["result"] == Result.UNKNOWN.value]
@@ -258,6 +285,7 @@ def evaluate_scheme(scheme: dict[str, Any], profile: dict[str, Any]) -> dict[str
     return {
         "schemeCode": scheme["schemeCode"],
         "status": status,
+        "unverifiedScheme": unverified_scheme,
         "criteria": criteria,
         "exclusions": exclusions,
         "verificationCriteria": verification,

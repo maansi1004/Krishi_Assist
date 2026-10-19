@@ -1653,5 +1653,2714 @@
         "category": "Training"
       }
     }
+  },
+  {
+    "schemeCode": "PM-KMY",
+    "name": "Pradhan Mantri Kisan Maan-Dhan Yojana",
+    "shortName": "PM-KMY",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "pension",
+    "description": "Voluntary contributory pension scheme for eligible small and marginal farmers, subject to age, contribution and exclusion rules.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Pension benefit as prescribed by the current scheme guidelines."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://pmkisan.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://pmkisan.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "प्रधानमंत्री किसान मान-धन योजना",
+        "description": "Voluntary contributory pension scheme for eligible small and marginal farmers, subject to age, contribution and exclusion rules.",
+        "category": "pension"
+      },
+      "hinglish": {
+        "name": "Pradhan Mantri Kisan Maan-Dhan Yojana",
+        "description": "Voluntary contributory pension scheme for eligible small and marginal farmers, subject to age, contribution and exclusion rules.",
+        "category": "Pension"
+      }
+    }
+  },
+  {
+    "schemeCode": "KCC-MISS",
+    "name": "Kisan Credit Card / Modified Interest Subvention Scheme",
+    "shortName": "KCC / MISS",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "credit",
+    "description": "Institutional agricultural credit for eligible farmers; interest support and lending terms depend on current bank and government rules.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Access to eligible short-term agricultural credit; exact limits and interest support are subject to current rules."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://pmkisan.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://pmkisan.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "किसान क्रेडिट कार्ड",
+        "description": "Institutional agricultural credit for eligible farmers; interest support and lending terms depend on current bank and government rules.",
+        "category": "credit"
+      },
+      "hinglish": {
+        "name": "Kisan Credit Card",
+        "description": "Institutional agricultural credit for eligible farmers; interest support and lending terms depend on current bank and government rules.",
+        "category": "Credit"
+      }
+    }
+  },
+  {
+    "schemeCode": "AIF",
+    "name": "Agriculture Infrastructure Fund",
+    "shortName": "AIF",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "infrastructure",
+    "description": "Financing support for eligible agriculture infrastructure projects and post-harvest management assets.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Financing and eligible interest support as defined by current AIF guidelines."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://agriinfra.dac.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://agriinfra.dac.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "कृषि अवसंरचना निधि",
+        "description": "Financing support for eligible agriculture infrastructure projects and post-harvest management assets.",
+        "category": "infrastructure"
+      },
+      "hinglish": {
+        "name": "Krishi Infrastructure Fund",
+        "description": "Financing support for eligible agriculture infrastructure projects and post-harvest management assets.",
+        "category": "Infrastructure"
+      }
+    }
+  },
+  {
+    "schemeCode": "PDMC",
+    "name": "Per Drop More Crop",
+    "shortName": "PDMC",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "irrigation",
+    "description": "Promotes water-use efficiency through eligible micro-irrigation systems such as drip and sprinkler irrigation.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Assistance for eligible micro-irrigation investments, subject to state rules and beneficiary category."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://pmksy.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://pmksy.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "पर ड्रॉप मोर क्रॉप",
+        "description": "Promotes water-use efficiency through eligible micro-irrigation systems such as drip and sprinkler irrigation.",
+        "category": "irrigation"
+      },
+      "hinglish": {
+        "name": "Per Drop More Crop",
+        "description": "Promotes water-use efficiency through eligible micro-irrigation systems such as drip and sprinkler irrigation.",
+        "category": "Irrigation"
+      }
+    }
+  },
+  {
+    "schemeCode": "SMAM",
+    "name": "Sub-Mission on Agricultural Mechanization",
+    "shortName": "SMAM",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "mechanization",
+    "description": "Supports access to eligible agricultural machinery and mechanization services through approved assistance channels.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Machinery assistance or custom-hiring support subject to current guidelines and state allocation."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://agrimachinery.nic.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://agrimachinery.nic.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "कृषि मशीनीकरण उप-मिशन",
+        "description": "Supports access to eligible agricultural machinery and mechanization services through approved assistance channels.",
+        "category": "mechanization"
+      },
+      "hinglish": {
+        "name": "Sub-Mission on Agricultural Mechanization",
+        "description": "Supports access to eligible agricultural machinery and mechanization services through approved assistance channels.",
+        "category": "Mechanization"
+      }
+    }
+  },
+  {
+    "schemeCode": "PKVY",
+    "name": "Paramparagat Krishi Vikas Yojana",
+    "shortName": "PKVY",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "organic_farming",
+    "description": "Promotes cluster-based organic farming and related certification and market-linkage activities.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Support for eligible cluster-based organic farming activities under current guidelines."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://pgsindia-ncof.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://pgsindia-ncof.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "परंपरागत कृषि विकास योजना",
+        "description": "Promotes cluster-based organic farming and related certification and market-linkage activities.",
+        "category": "organic farming"
+      },
+      "hinglish": {
+        "name": "Paramparagat Krishi Vikas Yojana",
+        "description": "Promotes cluster-based organic farming and related certification and market-linkage activities.",
+        "category": "Organic Farming"
+      }
+    }
+  },
+  {
+    "schemeCode": "SHC",
+    "name": "Soil Health Card Scheme",
+    "shortName": "Soil Health Card",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "soil_health",
+    "description": "Provides soil testing information and nutrient-management recommendations to support balanced fertilizer use.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Soil health information and nutrient recommendations through the scheme’s service network."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://soilhealth.dac.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://soilhealth.dac.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "मृदा स्वास्थ्य कार्ड योजना",
+        "description": "Provides soil testing information and nutrient-management recommendations to support balanced fertilizer use.",
+        "category": "soil health"
+      },
+      "hinglish": {
+        "name": "Soil Health Card Scheme",
+        "description": "Provides soil testing information and nutrient-management recommendations to support balanced fertilizer use.",
+        "category": "Soil Health"
+      }
+    }
+  },
+  {
+    "schemeCode": "PM-KUSUM",
+    "name": "Pradhan Mantri Kisan Urja Suraksha evam Utthaan Mahabhiyan",
+    "shortName": "PM-KUSUM",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "renewable_energy",
+    "description": "Supports eligible solarisation of agricultural pumps and decentralized renewable-energy installations.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Component-specific support subject to current MNRE and state implementation guidelines."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://pmkusum.mnre.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://pmkusum.mnre.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "प्रधानमंत्री किसान ऊर्जा सुरक्षा एवं उत्थान महाभियान",
+        "description": "Supports eligible solarisation of agricultural pumps and decentralized renewable-energy installations.",
+        "category": "renewable energy"
+      },
+      "hinglish": {
+        "name": "PM-KUSUM solar energy scheme",
+        "description": "Supports eligible solarisation of agricultural pumps and decentralized renewable-energy installations.",
+        "category": "Renewable Energy"
+      }
+    }
+  },
+  {
+    "schemeCode": "MIDH",
+    "name": "Mission for Integrated Development of Horticulture",
+    "shortName": "MIDH",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "horticulture",
+    "description": "Supports eligible horticulture development, planting material, production, post-harvest and related activities.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Activity-specific assistance as defined by current mission guidelines and state action plans."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://midh.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://midh.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "समेकित बागवानी विकास मिशन",
+        "description": "Supports eligible horticulture development, planting material, production, post-harvest and related activities.",
+        "category": "horticulture"
+      },
+      "hinglish": {
+        "name": "Mission for Integrated Development of Horticulture",
+        "description": "Supports eligible horticulture development, planting material, production, post-harvest and related activities.",
+        "category": "Horticulture"
+      }
+    }
+  },
+  {
+    "schemeCode": "RKVY",
+    "name": "Rashtriya Krishi Vikas Yojana",
+    "shortName": "RKVY",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "agriculture_development",
+    "description": "Supports state-led agricultural development projects approved under the scheme framework.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Project-based assistance through approved state and implementing-agency projects."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://rkvy.nic.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://rkvy.nic.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "राष्ट्रीय कृषि विकास योजना",
+        "description": "Supports state-led agricultural development projects approved under the scheme framework.",
+        "category": "agriculture development"
+      },
+      "hinglish": {
+        "name": "Rashtriya Krishi Vikas Yojana",
+        "description": "Supports state-led agricultural development projects approved under the scheme framework.",
+        "category": "Agriculture Development"
+      }
+    }
+  },
+  {
+    "schemeCode": "NMNF",
+    "name": "National Mission on Natural Farming",
+    "shortName": "NMNF",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "natural_farming",
+    "description": "Promotes natural farming practices, farmer capacity building and transition support through approved implementation arrangements.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Support and training as specified by current mission guidelines and state implementation."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://agriwelfare.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://agriwelfare.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "राष्ट्रीय प्राकृतिक खेती मिशन",
+        "description": "Promotes natural farming practices, farmer capacity building and transition support through approved implementation arrangements.",
+        "category": "natural farming"
+      },
+      "hinglish": {
+        "name": "National Mission on Natural Farming",
+        "description": "Promotes natural farming practices, farmer capacity building and transition support through approved implementation arrangements.",
+        "category": "Natural Farming"
+      }
+    }
+  },
+  {
+    "schemeCode": "NFSM-SEED",
+    "name": "Sub-Mission on Seed and Planting Material",
+    "shortName": "SMSP",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "seeds",
+    "description": "Supports seed-system development, quality seed availability and planting-material initiatives under applicable components.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Component-based support for eligible seed and planting-material activities."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://seednet.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://seednet.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "बीज एवं रोपण सामग्री उप-मिशन",
+        "description": "Supports seed-system development, quality seed availability and planting-material initiatives under applicable components.",
+        "category": "seeds"
+      },
+      "hinglish": {
+        "name": "Sub-Mission on Seed and Planting Material",
+        "description": "Supports seed-system development, quality seed availability and planting-material initiatives under applicable components.",
+        "category": "Seeds"
+      }
+    }
+  },
+  {
+    "schemeCode": "MIDH-NBM",
+    "name": "National Bamboo Mission",
+    "shortName": "NBM",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "bamboo",
+    "description": "Supports eligible bamboo cultivation, planting material, value-chain and market-development activities.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Activity-specific support subject to current mission and state guidelines."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://midh.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://midh.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "राष्ट्रीय बांस मिशन",
+        "description": "Supports eligible bamboo cultivation, planting material, value-chain and market-development activities.",
+        "category": "bamboo"
+      },
+      "hinglish": {
+        "name": "National Bamboo Mission",
+        "description": "Supports eligible bamboo cultivation, planting material, value-chain and market-development activities.",
+        "category": "Bamboo"
+      }
+    }
+  },
+  {
+    "schemeCode": "NBHM",
+    "name": "National Beekeeping and Honey Mission",
+    "shortName": "NBHM",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "beekeeping",
+    "description": "Promotes scientific beekeeping, honey production, processing and value-chain development through approved components.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Training and eligible beekeeping/value-chain assistance as specified by current guidelines."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://nbb.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://nbb.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "राष्ट्रीय मधुमक्खी पालन एवं शहद मिशन",
+        "description": "Promotes scientific beekeeping, honey production, processing and value-chain development through approved components.",
+        "category": "beekeeping"
+      },
+      "hinglish": {
+        "name": "National Beekeeping and Honey Mission",
+        "description": "Promotes scientific beekeeping, honey production, processing and value-chain development through approved components.",
+        "category": "Beekeeping"
+      }
+    }
+  },
+  {
+    "schemeCode": "ISAM",
+    "name": "Integrated Scheme for Agricultural Marketing",
+    "shortName": "ISAM",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Department of Agriculture & Farmers Welfare, Ministry of Agriculture & Farmers Welfare",
+    "category": "marketing",
+    "description": "Supports improvements to agricultural marketing infrastructure and market-linkage systems through eligible components.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "in",
+          "expectedValue": [
+            "farmer",
+            "tenant_farmer",
+            "sharecropper"
+          ],
+          "criterion": "Applicant should be a farmer or another farmer category covered by the applicable scheme guidelines.",
+          "remediation": "Confirm the precise beneficiary categories and local implementation rules with the official scheme authority."
+        }
+      ]
+    },
+    "benefits": [
+      "Infrastructure or marketing support under eligible components and approved projects."
+    ],
+    "coverageConditions": [
+      "Eligibility, benefits, notified areas, application windows and required documents depend on current official guidelines and state-level implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity proof",
+        "requiredType": "verification",
+        "purpose": "Confirm identity requirements with the official implementing authority."
+      },
+      {
+        "name": "Farmer/land/tenancy records, where applicable",
+        "requiredType": "verification",
+        "purpose": "Confirm scheme-specific documentation requirements."
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check current scheme guidelines",
+        "description": "Review the official scheme portal and confirm current eligibility, benefits, documents and application dates.",
+        "responsibleParty": "Farmer",
+        "mode": "online",
+        "dependency": null,
+        "source": "Official scheme portal"
+      },
+      {
+        "step": 2,
+        "title": "Apply through the prescribed channel",
+        "description": "Use the official portal or local implementing office if applications are open and the applicant meets the current requirements.",
+        "responsibleParty": "Farmer/implementing authority",
+        "mode": "either",
+        "dependency": "Step 1",
+        "source": "Official scheme portal"
+      }
+    ],
+    "applicationChannels": [
+      "Official portal or implementing department; confirm current channel"
+    ],
+    "officialPortals": [
+      "https://agmarknet.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "Official scheme or government information portal",
+        "sourceType": "official",
+        "url": "https://agmarknet.gov.in/",
+        "note": "Verify current guidelines before relying on eligibility or benefit details."
+      }
+    ],
+    "targetingNotes": [],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "कृषि विपणन एकीकृत योजना",
+        "description": "Supports improvements to agricultural marketing infrastructure and market-linkage systems through eligible components.",
+        "category": "marketing"
+      },
+      "hinglish": {
+        "name": "Integrated Scheme for Agricultural Marketing",
+        "description": "Supports improvements to agricultural marketing infrastructure and market-linkage systems through eligible components.",
+        "category": "Marketing"
+      }
+    }
+  },
+  {
+    "schemeCode": "RAD-IFS-001",
+    "name": "Rainfed Area Development",
+    "shortName": "RAD",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Ministry of Agriculture and Farmers Welfare",
+    "category": "integrated_farming",
+    "description": "Area-based support for sustainable rainfed agriculture through integrated farming systems combining crops with horticulture, livestock, fishery, agroforestry, apiculture and related activities.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "equals",
+          "expectedValue": "farmer",
+          "criterion": "Applicant is a farmer",
+          "remediation": "Confirm details with District/Block Agriculture Officer."
+        }
+      ]
+    },
+    "exclusions": null,
+    "benefits": [
+      "Support for integrated farming systems and climate-risk mitigation.",
+      "Up to ₹30,000 per family for adoption of integrated farming systems, as stated in the supplied document."
+    ],
+    "benefitLimits": [],
+    "coverageConditions": [
+      "Subject to current scheme guidelines, approvals and local implementation."
+    ],
+    "documents": [
+      {
+        "name": "Aadhaar",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Land documents",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Bank details",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Photograph",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Contact agriculture office",
+        "description": "Contact the District/Block Agriculture Officer to check whether the village or cluster is covered.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 2,
+        "title": "Proposal review",
+        "description": "The proposal is forwarded for state-level approval where applicable.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      }
+    ],
+    "applicationChannels": [
+      "District/Block Agriculture Office"
+    ],
+    "officialPortals": [],
+    "sources": [
+      {
+        "title": "krishiAssist.docx provided by user",
+        "sourceType": "verification_required",
+        "note": "Derived from the supplied document; verify current eligibility, benefit amounts and application process with the implementing authority."
+      }
+    ],
+    "targetingNotes": [
+      "Cluster and state-level approval may apply."
+    ],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "Rainfed areas across India; implementation varies by state"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "Rainfed Area Development",
+        "description": "Area-based support for sustainable rainfed agriculture through integrated farming systems combining crops with horticulture, livestock, fishery, agroforestry, apiculture and related activities.",
+        "category": "integrated_farming"
+      },
+      "hinglish": {
+        "name": "Rainfed Area Development",
+        "description": "Area-based support for sustainable rainfed agriculture through integrated farming systems combining crops with horticulture, livestock, fishery, agroforestry, apiculture and related activities.",
+        "category": "integrated_farming"
+      }
+    }
+  },
+  {
+    "schemeCode": "MH-NDKSP-001",
+    "name": "Nanaji Deshmukh Krishi Sanjivani Prakalp",
+    "shortName": "NDKSP / POCRA",
+    "level": "state",
+    "state": "Maharashtra",
+    "implementingDepartment": "Department of Agriculture, Government of Maharashtra",
+    "category": "climate_resilience",
+    "description": "Maharashtra project supporting climate-resilient agriculture, drought proofing, water conservation, protected cultivation and farmer-group agribusiness investments.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "state",
+          "operator": "equals",
+          "expectedValue": "Maharashtra",
+          "criterion": "Applicant/project must fall within Maharashtra project coverage",
+          "remediation": "Confirm eligible village/project coverage."
+        },
+        {
+          "fieldName": "ndksp_project_coverage",
+          "operator": "equals",
+          "expectedValue": true,
+          "criterion": "Applicant or project must be covered by the project area/component",
+          "remediation": "Verify project eligibility with the implementing authority.",
+          "fieldSource": "extra_attributes"
+        }
+      ]
+    },
+    "exclusions": null,
+    "benefits": [
+      "Matching grants/back-ended subsidies for eligible farm investments.",
+      "Support may cover polyhouses, poly tunnels, drip/sprinkler irrigation, farm ponds, climate-resilient seed production and eligible farmer-group/FPO proposals."
+    ],
+    "benefitLimits": [],
+    "coverageConditions": [
+      "Subject to current scheme guidelines, approvals and local implementation."
+    ],
+    "documents": [
+      {
+        "name": "Identity and farmer/group registration documents",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Land or asset records",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Bank details",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Project estimates/DPR",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Register or access portal",
+        "description": "Use the project DBT portal to register and submit the applicable proposal.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "online",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 2,
+        "title": "Obtain pre-sanction",
+        "description": "Wait for agriculture officer/project approval before carrying out approved work.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 3,
+        "title": "Submit completion/payment request",
+        "description": "Submit the work-completion and payment request through the prescribed workflow.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "online",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      }
+    ],
+    "applicationChannels": [
+      "Online project DBT portal"
+    ],
+    "officialPortals": [
+      "https://dbt.mahapocra.gov.in"
+    ],
+    "sources": [
+      {
+        "title": "krishiAssist.docx provided by user",
+        "sourceType": "verification_required",
+        "note": "Derived from the supplied document; verify current eligibility, benefit amounts and application process with the implementing authority."
+      }
+    ],
+    "targetingNotes": [
+      "Project-area, component and applicant-category conditions apply."
+    ],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "Eligible project villages in Maharashtra"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "Nanaji Deshmukh Krishi Sanjivani Prakalp",
+        "description": "Maharashtra project supporting climate-resilient agriculture, drought proofing, water conservation, protected cultivation and farmer-group agribusiness investments.",
+        "category": "climate_resilience"
+      },
+      "hinglish": {
+        "name": "Nanaji Deshmukh Krishi Sanjivani Prakalp",
+        "description": "Maharashtra project supporting climate-resilient agriculture, drought proofing, water conservation, protected cultivation and farmer-group agribusiness investments.",
+        "category": "climate_resilience"
+      }
+    }
+  },
+  {
+    "schemeCode": "SK-COFFEE-EXP-001",
+    "name": "Coffee Development Programme – Expansion of Coffee",
+    "shortName": "Coffee Expansion Programme",
+    "level": "state",
+    "state": "Sikkim",
+    "implementingDepartment": "Coffee Board, Department of Commerce, Ministry of Commerce and Industry",
+    "category": "horticulture",
+    "description": "Coffee expansion support for eligible tribal growers in suitable areas under the Coffee Board programme.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "tribal_grower",
+          "operator": "equals",
+          "expectedValue": true,
+          "criterion": "Applicant must be a tribal grower",
+          "remediation": "Verify status with the Coffee Board.",
+          "fieldSource": "extra_attributes"
+        },
+        {
+          "fieldName": "coffee_area_suitable",
+          "operator": "equals",
+          "expectedValue": true,
+          "criterion": "Area must be suitable for coffee cultivation as assessed by Coffee Board officers",
+          "remediation": "Obtain assessment from the Coffee Board.",
+          "fieldSource": "extra_attributes"
+        },
+        {
+          "fieldName": "coffee_board_seed_material",
+          "operator": "equals",
+          "expectedValue": true,
+          "criterion": "Seed material must be procured from the Coffee Board",
+          "remediation": "Retain procurement proof.",
+          "fieldSource": "extra_attributes"
+        }
+      ]
+    },
+    "exclusions": null,
+    "benefits": [
+      "Unit cost ₹1,00,000 per hectare; subsidy stated as 50% (₹50,000 per hectare), subject to admissibility.",
+      "Subsidy claims are released in installments after verification and inspection."
+    ],
+    "benefitLimits": [],
+    "coverageConditions": [
+      "Subject to current scheme guidelines, approvals and local implementation."
+    ],
+    "documents": [
+      {
+        "name": "Prescribed application and self-declaration",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Photo identity",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Land ownership proof",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Certified land records/possession certificate",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Bank account and IFSC details",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Submit first-installment claim",
+        "description": "After planting, submit the prescribed form and documents to the relevant Coffee Board Extension Office.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 2,
+        "title": "Inspection and scrutiny",
+        "description": "The office scrutinizes records and carries out field inspection.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 3,
+        "title": "Submit second-installment claim",
+        "description": "Submit the applicable claim during the second year, subject to programme conditions.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      }
+    ],
+    "applicationChannels": [
+      "Offline – Coffee Board Extension Office"
+    ],
+    "officialPortals": [],
+    "sources": [
+      {
+        "title": "krishiAssist.docx provided by user",
+        "sourceType": "verification_required",
+        "note": "Derived from the supplied document; verify current eligibility, benefit amounts and application process with the implementing authority."
+      }
+    ],
+    "targetingNotes": [
+      "The document describes installments and rates; confirm current programme rules before relying on them."
+    ],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "Sikkim / eligible North Eastern coffee-growing areas"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "Coffee Development Programme – Expansion of Coffee",
+        "description": "Coffee expansion support for eligible tribal growers in suitable areas under the Coffee Board programme.",
+        "category": "horticulture"
+      },
+      "hinglish": {
+        "name": "Coffee Development Programme – Expansion of Coffee",
+        "description": "Coffee expansion support for eligible tribal growers in suitable areas under the Coffee Board programme.",
+        "category": "horticulture"
+      }
+    }
+  },
+  {
+    "schemeCode": "GA-VERMICOMPOST-001",
+    "name": "Development of Manures & Fertilizers – Vermi-compost Units",
+    "shortName": "Goa Vermi-compost Unit Assistance",
+    "level": "state",
+    "state": "Goa",
+    "implementingDepartment": "Department of Agriculture, Government of Goa",
+    "category": "organic_farming",
+    "description": "Assistance for constructing or installing vermi-compost units to convert farm waste into organic farm inputs.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "state",
+          "operator": "equals",
+          "expectedValue": "Goa",
+          "criterion": "Applicant must carry out agricultural activities in Goa",
+          "remediation": "Verify residency/activity and scheme conditions."
+        },
+        {
+          "fieldName": "krishi_card",
+          "operator": "equals",
+          "expectedValue": true,
+          "criterion": "Applicant must have a Krishi Card",
+          "remediation": "Provide Krishi Card details.",
+          "fieldSource": "extra_attributes"
+        }
+      ]
+    },
+    "exclusions": null,
+    "benefits": [
+      "75% subsidy, stated as limited to ₹1,950 per cubic metre for vermi-compost units.",
+      "Eligible portable vermi-compost units may also be supported subject to unit and scheme limits."
+    ],
+    "benefitLimits": [],
+    "coverageConditions": [
+      "Subject to current scheme guidelines, approvals and local implementation."
+    ],
+    "documents": [
+      {
+        "name": "Krishi Card abstract",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Soil Health Card",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Cash invoice",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Approved model design and estimates before installation",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Obtain application form",
+        "description": "Visit the Zonal Agriculture Officer and request the prescribed form.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 2,
+        "title": "Submit application",
+        "description": "Complete the form and submit required documents to the Zonal Agriculture Officer.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      }
+    ],
+    "applicationChannels": [
+      "Offline – Zonal Agriculture Officer"
+    ],
+    "officialPortals": [],
+    "sources": [
+      {
+        "title": "krishiAssist.docx provided by user",
+        "sourceType": "verification_required",
+        "note": "Derived from the supplied document; verify current eligibility, benefit amounts and application process with the implementing authority."
+      }
+    ],
+    "targetingNotes": [
+      "Benefit rates and technical specifications must be confirmed with Goa Agriculture Department."
+    ],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "Goa"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "Development of Manures & Fertilizers – Vermi-compost Units",
+        "description": "Assistance for constructing or installing vermi-compost units to convert farm waste into organic farm inputs.",
+        "category": "organic_farming"
+      },
+      "hinglish": {
+        "name": "Development of Manures & Fertilizers – Vermi-compost Units",
+        "description": "Assistance for constructing or installing vermi-compost units to convert farm waste into organic farm inputs.",
+        "category": "organic_farming"
+      }
+    }
+  },
+  {
+    "schemeCode": "GA-BIOGAS-001",
+    "name": "Development of Manures & Fertilizers – Biogas Plant Assistance",
+    "shortName": "Goa Biogas Plant Assistance",
+    "level": "state",
+    "state": "Goa",
+    "implementingDepartment": "Department of Agriculture, Government of Goa",
+    "category": "renewable_energy",
+    "description": "Subsidy for construction or installation of biogas plants using farm livestock waste.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "state",
+          "operator": "equals",
+          "expectedValue": "Goa",
+          "criterion": "Applicant must carry out agricultural activities in Goa",
+          "remediation": "Verify activity and location."
+        },
+        {
+          "fieldName": "krishi_card",
+          "operator": "equals",
+          "expectedValue": true,
+          "criterion": "Applicant must have a Krishi Card",
+          "remediation": "Provide Krishi Card details.",
+          "fieldSource": "extra_attributes"
+        }
+      ]
+    },
+    "exclusions": null,
+    "benefits": [
+      "90% subsidy against the eligible standard cost for qualifying biogas plants, subject to the applicable unit size and rules.",
+      "The supplied document lists size-specific standard costs, subsidy limits and repair assistance conditions."
+    ],
+    "benefitLimits": [],
+    "coverageConditions": [
+      "Subject to current scheme guidelines, approvals and local implementation."
+    ],
+    "documents": [
+      {
+        "name": "Krishi Card abstract",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Soil Health Card",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Cash invoice",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Cost estimates",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Registered mason details",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Approved model estimate for prefabricated plant",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Obtain application form",
+        "description": "Visit the Zonal Agriculture Officer and request the prescribed form.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 2,
+        "title": "Submit documents",
+        "description": "Submit the signed application and required estimates/documents.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 3,
+        "title": "Technical review",
+        "description": "Confirm eligible plant size and cost with the implementing authority.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      }
+    ],
+    "applicationChannels": [
+      "Offline – Zonal Agriculture Officer"
+    ],
+    "officialPortals": [],
+    "sources": [
+      {
+        "title": "krishiAssist.docx provided by user",
+        "sourceType": "verification_required",
+        "note": "Derived from the supplied document; verify current eligibility, benefit amounts and application process with the implementing authority."
+      }
+    ],
+    "targetingNotes": [
+      "Plant size depends on cattle/manure availability; the document states a lifetime maximum of three units."
+    ],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "Goa"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "Development of Manures & Fertilizers – Biogas Plant Assistance",
+        "description": "Subsidy for construction or installation of biogas plants using farm livestock waste.",
+        "category": "renewable_energy"
+      },
+      "hinglish": {
+        "name": "Development of Manures & Fertilizers – Biogas Plant Assistance",
+        "description": "Subsidy for construction or installation of biogas plants using farm livestock waste.",
+        "category": "renewable_energy"
+      }
+    }
+  },
+  {
+    "schemeCode": "HR-AGRI-PWD-001",
+    "name": "Agricultural Activities for Persons with Disabilities",
+    "shortName": "Haryana Agricultural Activities Loan Scheme",
+    "level": "state",
+    "state": "Haryana",
+    "implementingDepartment": "Haryana Backward Classes and Economically Weaker Sections Kalyan Nigam",
+    "category": "financial",
+    "description": "Loans for eligible persons with disabilities for agricultural production, irrigation, horticulture, sericulture, farm machinery, agricultural services and marketing of produce.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "state",
+          "operator": "equals",
+          "expectedValue": "Haryana",
+          "criterion": "Applicant must be a permanent resident of Haryana",
+          "remediation": "Provide Haryana domicile proof."
+        },
+        {
+          "fieldName": "disability_percentage",
+          "operator": "gte",
+          "expectedValue": 40,
+          "criterion": "Applicant must have disability of at least 40%",
+          "remediation": "Provide valid disability certificate.",
+          "fieldSource": "extra_attributes"
+        },
+        {
+          "fieldName": "age",
+          "operator": "gte",
+          "expectedValue": 18,
+          "criterion": "Applicant generally must be at least 18 years old",
+          "remediation": "Verify age; the document notes a relaxation to 14 years for persons with mental retardation."
+        }
+      ]
+    },
+    "exclusions": null,
+    "benefits": [
+      "Loans up to ₹10,00,000 for eligible agricultural activities, subject to loan appraisal and programme rules."
+    ],
+    "benefitLimits": [],
+    "coverageConditions": [
+      "Subject to current scheme guidelines, approvals and local implementation."
+    ],
+    "documents": [
+      {
+        "name": "Aadhaar/identity proof",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Age proof",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Haryana domicile certificate",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Ration card",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Disability certificate",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Bank account details",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Photograph",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Other supporting documents",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Register on Antyodaya-SARAL",
+        "description": "Create an account on the official Haryana Antyodaya-SARAL portal.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "online",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 2,
+        "title": "Apply for service",
+        "description": "Log in, find the scheme under available services, complete the form and upload documents.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "online",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 3,
+        "title": "Track application",
+        "description": "Use the application reference details to track progress.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "online",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      }
+    ],
+    "applicationChannels": [
+      "Online – Antyodaya-SARAL"
+    ],
+    "officialPortals": [
+      "https://saralharyana.gov.in/"
+    ],
+    "sources": [
+      {
+        "title": "krishiAssist.docx provided by user",
+        "sourceType": "verification_required",
+        "note": "Derived from the supplied document; verify current eligibility, benefit amounts and application process with the implementing authority."
+      }
+    ],
+    "targetingNotes": [
+      "Loan approval is subject to eligibility verification and appraisal."
+    ],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "Haryana"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "Agricultural Activities for Persons with Disabilities",
+        "description": "Loans for eligible persons with disabilities for agricultural production, irrigation, horticulture, sericulture, farm machinery, agricultural services and marketing of produce.",
+        "category": "financial"
+      },
+      "hinglish": {
+        "name": "Agricultural Activities for Persons with Disabilities",
+        "description": "Loans for eligible persons with disabilities for agricultural production, irrigation, horticulture, sericulture, farm machinery, agricultural services and marketing of produce.",
+        "category": "financial"
+      }
+    }
+  },
+  {
+    "schemeCode": "RKVY-SHC-FERT-001",
+    "name": "RKVY Soil Health and Fertility – Soil Health Card",
+    "shortName": "RKVY Soil Health & Fertility",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Ministry of Agriculture and Farmers Welfare",
+    "category": "soil_health",
+    "description": "Soil test-based nutrient management through Soil Health Cards, soil analysis reports and soil testing support.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "equals",
+          "expectedValue": "farmer",
+          "criterion": "Intended for farmers",
+          "remediation": "Contact the local agriculture department for enrolment or soil testing."
+        }
+      ]
+    },
+    "exclusions": null,
+    "benefits": [
+      "Soil Health Card with soil analysis results and fertilizer/soil amendment recommendations.",
+      "Access to soil testing and soil analysis reports through applicable implementing facilities."
+    ],
+    "benefitLimits": [],
+    "coverageConditions": [
+      "Subject to current scheme guidelines, approvals and local implementation."
+    ],
+    "documents": [
+      {
+        "name": "Farmer identity/contact details",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Land or field details",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Contact soil testing facility",
+        "description": "Contact the local agriculture office or designated soil testing laboratory.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 2,
+        "title": "Provide field details and sample",
+        "description": "Follow the prescribed soil-sampling and submission process.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 3,
+        "title": "Receive results",
+        "description": "Use the soil report and recommendations for nutrient management.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      }
+    ],
+    "applicationChannels": [
+      "Local agriculture department / designated soil testing laboratory"
+    ],
+    "officialPortals": [],
+    "sources": [
+      {
+        "title": "krishiAssist.docx provided by user",
+        "sourceType": "verification_required",
+        "note": "Derived from the supplied document; verify current eligibility, benefit amounts and application process with the implementing authority."
+      }
+    ],
+    "targetingNotes": [
+      "This is the RKVY Soil Health and Fertility component described in the document; check whether it overlaps with the existing Soil Health Card record before displaying both."
+    ],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "All India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "RKVY Soil Health and Fertility – Soil Health Card",
+        "description": "Soil test-based nutrient management through Soil Health Cards, soil analysis reports and soil testing support.",
+        "category": "soil_health"
+      },
+      "hinglish": {
+        "name": "RKVY Soil Health and Fertility – Soil Health Card",
+        "description": "Soil test-based nutrient management through Soil Health Cards, soil analysis reports and soil testing support.",
+        "category": "soil_health"
+      }
+    }
+  },
+  {
+    "schemeCode": "RAD-IFS-GROUP-001",
+    "name": "Rainfed Area Development – Integrated Farming System Support",
+    "shortName": "RAD Integrated Farming Support",
+    "level": "central",
+    "state": "All India",
+    "implementingDepartment": "Ministry of Agriculture and Farmers Welfare",
+    "category": "integrated_farming",
+    "description": "Component-level record for the integrated farming system support described under Rainfed Area Development, combining crop production with suitable allied activities.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "farmer_type",
+          "operator": "equals",
+          "expectedValue": "farmer",
+          "criterion": "Applicant must be a farmer",
+          "remediation": "Confirm eligible cluster and intervention with the agriculture office."
+        }
+      ]
+    },
+    "exclusions": null,
+    "benefits": [
+      "Up to ₹30,000 per family for adoption of integrated farming systems, as stated in the supplied document.",
+      "Possible integration of horticulture, livestock, fishery, apiculture, agroforestry and related activities, subject to local project design."
+    ],
+    "benefitLimits": [],
+    "coverageConditions": [
+      "Subject to current scheme guidelines, approvals and local implementation."
+    ],
+    "documents": [
+      {
+        "name": "Aadhaar",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Land documents",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Bank details",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Photograph",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Check cluster coverage",
+        "description": "Contact the District/Block Agriculture Officer to check village/cluster eligibility.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 2,
+        "title": "Submit through project process",
+        "description": "Follow the state-approved project and implementing agency process.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      }
+    ],
+    "applicationChannels": [
+      "District/Block Agriculture Office"
+    ],
+    "officialPortals": [],
+    "sources": [
+      {
+        "title": "krishiAssist.docx provided by user",
+        "sourceType": "verification_required",
+        "note": "Derived from the supplied document; verify current eligibility, benefit amounts and application process with the implementing authority."
+      }
+    ],
+    "targetingNotes": [
+      "This is a component-level entry under RAD, not a separate national scheme; avoid double-counting if the main RAD record is shown."
+    ],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "Eligible rainfed clusters across India"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "Rainfed Area Development – Integrated Farming System Support",
+        "description": "Component-level record for the integrated farming system support described under Rainfed Area Development, combining crop production with suitable allied activities.",
+        "category": "integrated_farming"
+      },
+      "hinglish": {
+        "name": "Rainfed Area Development – Integrated Farming System Support",
+        "description": "Component-level record for the integrated farming system support described under Rainfed Area Development, combining crop production with suitable allied activities.",
+        "category": "integrated_farming"
+      }
+    }
+  },
+  {
+    "schemeCode": "MH-NDKSP-FPO-001",
+    "name": "Nanaji Deshmukh Krishi Sanjivani Prakalp – FPO and Farmer Group Support",
+    "shortName": "NDKSP FPO/Group Support",
+    "level": "state",
+    "state": "Maharashtra",
+    "implementingDepartment": "Department of Agriculture, Government of Maharashtra",
+    "category": "farmer_collectives",
+    "description": "Component-level support for eligible farmer producer companies, registered farmer groups and self-help groups for agribusiness and value-chain proposals under NDKSP.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "state",
+          "operator": "equals",
+          "expectedValue": "Maharashtra",
+          "criterion": "Project must be in eligible Maharashtra project coverage",
+          "remediation": "Verify eligible village and component."
+        },
+        {
+          "fieldName": "farmer_group_registered",
+          "operator": "equals",
+          "expectedValue": true,
+          "criterion": "Applicant group/company must be registered under the applicable project requirements",
+          "remediation": "Provide registration documents.",
+          "fieldSource": "extra_attributes"
+        }
+      ]
+    },
+    "exclusions": null,
+    "benefits": [
+      "Matching-grant support for eligible agribusiness/value-chain proposals, subject to project conditions and approval."
+    ],
+    "benefitLimits": [],
+    "coverageConditions": [
+      "Subject to current scheme guidelines, approvals and local implementation."
+    ],
+    "documents": [
+      {
+        "name": "FPO/group registration",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Member list",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Business/project proposal",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Bank details",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "DPR/financial documents",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Register and prepare proposal",
+        "description": "Prepare the applicable group/FPO proposal through the project portal.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "online",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 2,
+        "title": "Obtain project approval",
+        "description": "Complete eligibility, financial and technical review.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 3,
+        "title": "Complete project workflow",
+        "description": "Follow pre-sanction, implementation, payment request and disbursement steps.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      }
+    ],
+    "applicationChannels": [
+      "Online project DBT portal"
+    ],
+    "officialPortals": [
+      "https://dbt.mahapocra.gov.in"
+    ],
+    "sources": [
+      {
+        "title": "krishiAssist.docx provided by user",
+        "sourceType": "verification_required",
+        "note": "Derived from the supplied document; verify current eligibility, benefit amounts and application process with the implementing authority."
+      }
+    ],
+    "targetingNotes": [
+      "This is a component-level entry under NDKSP; FPO membership and other financial thresholds must be checked with current project rules."
+    ],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "Eligible project villages in Maharashtra"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "Nanaji Deshmukh Krishi Sanjivani Prakalp – FPO and Farmer Group Support",
+        "description": "Component-level support for eligible farmer producer companies, registered farmer groups and self-help groups for agribusiness and value-chain proposals under NDKSP.",
+        "category": "farmer_collectives"
+      },
+      "hinglish": {
+        "name": "Nanaji Deshmukh Krishi Sanjivani Prakalp – FPO and Farmer Group Support",
+        "description": "Component-level support for eligible farmer producer companies, registered farmer groups and self-help groups for agribusiness and value-chain proposals under NDKSP.",
+        "category": "farmer_collectives"
+      }
+    }
+  },
+  {
+    "schemeCode": "GA-MANURE-001",
+    "name": "Goa Development of Manures & Fertilizers – Farm Waste Assistance",
+    "shortName": "Goa Manures & Fertilizers",
+    "level": "state",
+    "state": "Goa",
+    "implementingDepartment": "Department of Agriculture, Government of Goa",
+    "category": "organic_farming",
+    "description": "Umbrella scheme entry for the Goa Department of Agriculture support described for on-farm waste conversion and farm-input improvement, including eligible vermi-composting interventions.",
+    "eligibility": {
+      "logic": "AND",
+      "conditions": [
+        {
+          "fieldName": "state",
+          "operator": "equals",
+          "expectedValue": "Goa",
+          "criterion": "Applicant must carry out agricultural activities in Goa",
+          "remediation": "Verify activity and location."
+        },
+        {
+          "fieldName": "krishi_card",
+          "operator": "equals",
+          "expectedValue": true,
+          "criterion": "Applicant must have a Krishi Card",
+          "remediation": "Provide Krishi Card details.",
+          "fieldSource": "extra_attributes"
+        }
+      ]
+    },
+    "exclusions": null,
+    "benefits": [
+      "Assistance for eligible farm-waste management and organic input interventions as described under the Development of Manures & Fertilizers scheme."
+    ],
+    "benefitLimits": [],
+    "coverageConditions": [
+      "Subject to current scheme guidelines, approvals and local implementation."
+    ],
+    "documents": [
+      {
+        "name": "Krishi Card abstract",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Soil Health Card",
+        "requiredType": "required",
+        "purpose": "Application verification"
+      },
+      {
+        "name": "Estimates/invoices",
+        "requiredType": "conditional",
+        "purpose": "Application verification"
+      }
+    ],
+    "actionSteps": [
+      {
+        "step": 1,
+        "title": "Contact Zonal Agriculture Officer",
+        "description": "Request the current scheme form and confirm the applicable component.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      },
+      {
+        "step": 2,
+        "title": "Submit documents",
+        "description": "Submit the application and required supporting documents.",
+        "responsibleParty": "Applicant/implementing authority",
+        "mode": "offline",
+        "dependency": null,
+        "source": "krishiAssist.docx"
+      }
+    ],
+    "applicationChannels": [
+      "Offline – Zonal Agriculture Officer"
+    ],
+    "officialPortals": [],
+    "sources": [
+      {
+        "title": "krishiAssist.docx provided by user",
+        "sourceType": "verification_required",
+        "note": "Derived from the supplied document; verify current eligibility, benefit amounts and application process with the implementing authority."
+      }
+    ],
+    "targetingNotes": [
+      "Umbrella/component overlap with Goa Vermi-compost and Biogas records is intentional for coverage but should be deduplicated in the UI if listing individual components."
+    ],
+    "allocationPolicy": [],
+    "geographicTargeting": [
+      "Goa"
+    ],
+    "procurementConditions": [],
+    "rawSourceText": [],
+    "lastVerifiedAt": null,
+    "status": "verification_required",
+    "translations": {
+      "hi": {
+        "name": "Goa Development of Manures & Fertilizers – Farm Waste Assistance",
+        "description": "Umbrella scheme entry for the Goa Department of Agriculture support described for on-farm waste conversion and farm-input improvement, including eligible vermi-composting interventions.",
+        "category": "organic_farming"
+      },
+      "hinglish": {
+        "name": "Goa Development of Manures & Fertilizers – Farm Waste Assistance",
+        "description": "Umbrella scheme entry for the Goa Department of Agriculture support described for on-farm waste conversion and farm-input improvement, including eligible vermi-composting interventions.",
+        "category": "organic_farming"
+      }
+    }
   }
 ]

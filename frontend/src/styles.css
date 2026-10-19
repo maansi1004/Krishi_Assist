@@ -18,3 +18,15 @@
 .directorySearch{display:flex;gap:10px;align-items:center;margin:24px 0}.directorySearch input{flex:1}.directorySearch .outline{white-space:nowrap}
 .modalActions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}.modalActions button{min-height:44px}
 @media (max-width:760px){.directorySearch{flex-direction:column;align-items:stretch}.applicationCard{flex-direction:column;align-items:stretch}.applicationCard select{width:100%}.modalActions{flex-direction:column}.modalActions button{width:100%}}
+
+/* Round 2: result dots (class name in the code is criterionDot) + questions form */
+.criterionDot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-top:6px;flex:0 0 auto;background:#9aa5a0}
+.criterionDot.pass{background:#2f8a4d}.criterionDot.fail{background:#c74b4b}.criterionDot.unknown{background:#c18a18}
+.unverifiedNote{margin:12px 0 0;padding:10px 12px;border-radius:8px;background:#fff6e0;border:1px solid #efd7a6;color:#6b4e00;font-size:13px;line-height:1.5}
+.questionsPanel{margin-top:16px;padding:20px;border:1px solid #dfe8e1;border-radius:12px;background:#fff}
+.questionsPanel h4{margin:0 0 6px;font-size:15px}
+.questionsSub{margin:0 0 14px;color:#66736c;font-size:13px;line-height:1.5}
+.questionsList{display:grid;gap:12px;margin-bottom:16px}
+.questionsList label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:#34443c;font-weight:600}
+.questionsList select,.questionsList input{border:1px solid #d7e0d9;border-radius:7px;padding:10px 12px;font-weight:400;background:#fff;color:var(--ink);max-width:340px}
+.questionsProfile{margin:14px 0 0;font-size:13px;color:#506058;line-height:1.6}

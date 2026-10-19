@@ -15,19 +15,20 @@ from app.auth.dependencies import current_user
 from app.db.session import get_db
 from app.models.profile import FarmProfile
 from app.models.user import User
+from app.schemas.profile import FarmerProfile
 from app.services.scheme_service import get_scheme
 from app.engines.eligibility_engine import evaluate_scheme
 
 router = APIRouter(prefix="/api/reports", tags=["reports"])
 
+# Fix 3: use EVERY profile field, exactly like the app's eligibility check does,
+# so the PDF can never disagree with what the farmer saw on screen.
+PROFILE_FIELDS = list(FarmerProfile.model_fields.keys())
+
 def _profile(row: FarmProfile | None) -> dict:
     if not row:
         return {}
-    return {
-        "farmer_name": row.farmer_name, "state": row.state, "district": row.district,
-        "land_size_hectares": row.land_size_hectares, "primary_crop": row.primary_crop,
-        "farmer_type": row.farmer_type, "land_ownership_type": row.land_ownership_type,
-    }
+    return {f: getattr(row, f) for f in PROFILE_FIELDS}
 
 def _text(value) -> str:
     if value is None: return "—"
@@ -54,7 +55,8 @@ def scheme_report(scheme_code: str, user: User = Depends(current_user), db: Sess
     story += [Paragraph(f"Scheme: {_text(scheme.get('name'))} ({scheme_code})", body),
               Paragraph(f"Generated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}", body), Spacer(1, 8)]
     story.append(Paragraph("Farmer profile", heading))
-    profile_rows = [[k.replace("_", " ").title(), _text(v)] for k,v in profile.items() if v is not None]
+    profile_rows = [[k.replace("_", " ").title(), _text(v)] for k,v in profile.items()
+                    if v not in (None, [], {}) and k != "extra_attributes"]
     if profile_rows:
         table = Table(profile_rows, colWidths=[150, 330])
         table.setStyle(TableStyle([("GRID",(0,0),(-1,-1),0.3,colors.grey),("BACKGROUND",(0,0),(0,-1),colors.whitesmoke),("VALIGN",(0,0),(-1,-1),"TOP")]))
