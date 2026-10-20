@@ -13,7 +13,7 @@ from app.schemas.assistant import AssistantChatRequest, AssistantChatResponse
 from app.schemas.profile import FarmerProfile
 from app.services.scheme_service import load_schemes, get_scheme
 from app.engines.eligibility_engine import evaluate_scheme
-from app.engines.recommendation_engine import ALIASES, normalize, score_scheme
+from app.engines.recommendation_engine import best_scheme_match, contains_phrase, norm_match, normalize, score_scheme
 
 router = APIRouter(prefix="/api/assistant", tags=["assistant"])
 KB_FILE = Path(__file__).resolve().parents[3] / "data/knowledge_base/agriculture_knowledge.json"
@@ -25,20 +25,23 @@ def profile_dict(row: FarmProfile | None) -> dict:
     return {f: getattr(row, f) for f in FarmerProfile.model_fields.keys()}
 
 
+def _has(q: str, words: list[str]) -> bool:
+    qn = norm_match(q)
+    return any(contains_phrase(qn, w) for w in words)
+
+
 def classify(message: str) -> str:
-    q = normalize(message)
-    if any(x in q for x in ["eligible", "eligibility", "qualify", "am i allowed", " पात्र", "पात्र", "योग्य", "eligible"]):
+    if _has(message, ["eligible", "eligibility", "qualify", "qualified", "am i allowed", "पात्र", "योग्य"]):
         return "eligibility"
-    if any(x in q for x in ["document", "documents", "paper", "papers", "दस्तावेज", "कागज"]):
+    if _has(message, ["document", "documents", "paper", "papers", "दस्तावेज", "कागज"]):
         return "documents"
-    if any(x in q for x in ["benefit", "benefits", "amount", "how much", "लाभ", "कितना", "मिलेगा"]):
+    if _has(message, ["benefit", "benefits", "amount", "how much", "लाभ", "कितना", "मिलेगा"]):
         return "benefits"
-    if any(x in q for x in ["how to apply", "apply", "application", "application process", "आवेदन", "आवेदन कैसे", "प्रक्रिया", "कदम"]):
+    if _has(message, ["how to apply", "apply", "applying", "application", "application process", "आवेदन", "आवेदन कैसे", "प्रक्रिया", "कदम"]):
         return "application"
-    if any(x in q for x in ["scheme", "schemes", "subsidy", "support", "yojana", "योजना", "सब्सिडी", "सहायता", "मदद"]):
+    if _has(message, ["scheme", "schemes", "subsidy", "support", "yojana", "योजना", "सब्सिडी", "सहायता", "मदद"]):
         return "scheme_discovery"
     return "general_agriculture_support"
-
 
 
 def relevant_schemes(q: str, profile: dict) -> list[dict]:
@@ -53,28 +56,35 @@ def relevant_schemes(q: str, profile: dict) -> list[dict]:
 
 def find_scheme_for_question(q: str, profile: dict, context_scheme_code: str | None = None) -> dict | None:
     """Resolve the scheme for a question without letting stale UI context override an explicit request."""
-    qn = normalize(q)
+    # 1. A scheme the farmer clearly named (code, name, Hindi name or common word).
+    #    If several match, prefer the strongest name, then the farmer's own state.
+    named = best_scheme_match(q, profile, load_schemes())
+    if named:
+        return named
 
-    # 1. Explicit scheme aliases always win.
-    for code, terms in ALIASES.items():
-        if any(term.lower() in qn for term in terms):
-            return get_scheme(code)
-
-    # 2. Exact scheme names/codes in the question.
-    for s in load_schemes():
-        values = [s.get("schemeCode"), s.get("name"), s.get("shortName")]
-        if any(v and normalize(str(v)) in qn for v in values):
-            return s
-
-    # 3. Only then use the selected scheme as conversational context.
+    # 2. Only then use the selected scheme as conversational context.
     if context_scheme_code:
         contextual = get_scheme(context_scheme_code.strip())
         if contextual:
             return contextual
 
-    # 4. Finally use relevance ranking.
+    # 3. Finally use relevance ranking.
     matches = relevant_schemes(q, profile)
     return get_scheme(matches[0]["schemeCode"]) if matches and matches[0]["relevanceScore"] >= 35 else None
+
+
+def _readable(result: dict, fields: list[str]) -> list[str]:
+    """Turn raw field names (agr50_preapproval) into the rule's plain sentence."""
+    by_field: dict[str, str] = {}
+    for c in result.get("criteria", []) + result.get("exclusions", []) + result.get("verificationCriteria", []):
+        by_field.setdefault(c["field"], c.get("criterion") or c["field"].replace("_", " "))
+    seen, out = set(), []
+    for f in fields:
+        text = by_field.get(f, f.replace("_", " ")).rstrip(" .")
+        if text not in seen:
+            seen.add(text)
+            out.append(text)
+    return out
 
 
 def lang_text(language: str, en: str, hi: str, hinglish: str) -> str:
@@ -91,13 +101,13 @@ def load_kb() -> list[dict]:
 
 
 def general_answer(q: str, language: str, profile: dict) -> str | None:
-    qn = normalize(q)
+    qn = norm_match(q)
     for item in load_kb():
-        if any(term.lower() in qn for term in item.get("keywords", [])):
+        if any(contains_phrase(qn, term) for term in item.get("keywords", [])):
             return item.get("answers", {}).get(language) or item.get("answers", {}).get("en")
     # Optional grounded LLM fallback. It receives only the minimum farm context and verified scheme excerpts.
     if settings.openrouter_api_key and settings.llm_model:
-        context = {"profile": {k: profile.get(k) for k in ["state", "district", "primary_crop", "land_size_hectares", "irrigation_type"] if profile.get(k) is not None}, "schemes": [{"code": s["schemeCode"], "name": s["name"], "description": s.get("description"), "benefits": s.get("benefits", [])[:3]} for s in load_schemes()]}
+        context = {"profile": {k: profile.get(k) for k in ["state", "district", "primary_crop", "land_size_hectares", "irrigation_type"] if profile.get(k) is not None}, "schemes": [{"code": s["schemeCode"], "name": s["name"], "description": s.get("description"), "benefits": s.get("benefits", [])[:3]} for s in (get_scheme(m["schemeCode"]) for m in relevant_schemes(q, profile)[:5]) if s]}
         system = "You are KrishiAssist, a farmer-friendly agricultural support assistant. Answer in the requested language. Use the supplied scheme context only for scheme claims. Never invent eligibility, benefits, official links, deadlines or documents. For personal eligibility, say that the deterministic rule engine must evaluate the scheme. For general agriculture advice, give practical, cautious guidance and state when local agronomist/official advice is needed."
         payload = json.dumps({"model": settings.llm_model, "messages": [{"role": "system", "content": system}, {"role": "user", "content": json.dumps({"language": language, "question": q, "context": context}, ensure_ascii=False)}], "temperature": 0.2}).encode()
         req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions", data=payload, headers={"Authorization": f"Bearer {settings.openrouter_api_key}", "Content-Type": "application/json", "HTTP-Referer": "http://localhost:5173", "X-Title": "KrishiAssist"}, method="POST")
@@ -160,14 +170,23 @@ def chat(request: AssistantChatRequest, user: User | None = Depends(optional_cur
             result = evaluate_scheme(selected, profile)
             status_map = {"ELIGIBLE": ("Eligible", "पात्र", "Eligible"), "ALMOST_ELIGIBLE": ("Almost eligible", "लगभग पात्र", "Almost eligible"), "NOT_ELIGIBLE": ("Not eligible", "पात्र नहीं", "Eligible nahi"), "VERIFICATION_REQUIRED": ("Verification required", "सत्यापन आवश्यक", "Verification zaroori hai")}
             status = status_map.get(result["status"], (result["status"], result["status"], result["status"]))[0 if request.language == "en" else 1 if request.language == "hi" else 2]
-            passed = [c["criterion"] for c in result["criteria"] if c["result"] == "PASS"][:4]
-            missing = result["missingRequirements"][:4]
-            failed = result["failedRequirements"][:4]
-            reply = f"{selected['name']}: {status}. "
-            if passed: reply += "Passed: " + "; ".join(passed) + ". "
-            if missing: reply += "Information needed: " + "; ".join(missing) + ". "
-            if failed: reply += "Failed or verification issues: " + "; ".join(failed) + ". "
-            reply += "This result comes from the structured rule engine, not an AI guess."
+            passed = [c["criterion"].rstrip(" .") for c in result["criteria"] if c["result"] == "PASS"][:4]
+            needed = _readable(result, result["missingRequirements"] + [f for f in result.get("verificationRequired", []) if f not in result["missingRequirements"]])[:4]
+            failed = _readable(result, result["failedRequirements"])[:4]
+            name = selected.get("translations", {}).get(request.language, {}).get("name") or selected["name"]
+            reply = f"{name}: {status}. "
+            if passed: reply += lang_text(request.language, "Passed: ", "पूरे हुए नियम: ", "Pass hue rules: ") + "; ".join(passed) + ". "
+            if needed: reply += lang_text(request.language, "Information needed: ", "ज़रूरी जानकारी: ", "Zaroori jaankari: ") + "; ".join(needed) + ". "
+            if failed: reply += lang_text(request.language, "Not met: ", "पूरे न होने वाले नियम: ", "Pure na hone wale rules: ") + "; ".join(failed) + ". "
+            if result.get("unverifiedScheme"):
+                reply += lang_text(request.language,
+                    "This scheme's data is still being verified, so please confirm the rules with the official source. ",
+                    "इस योजना का डेटा अभी सत्यापित हो रहा है, इसलिए आधिकारिक स्रोत से नियम जांच लें। ",
+                    "Is scheme ka data abhi verify ho raha hai, isliye official source se rules confirm karein. ")
+            reply += lang_text(request.language,
+                "This result comes from the structured rule engine, not an AI guess.",
+                "यह नतीजा नियम इंजन से आया है, AI के अंदाज़े से नहीं।",
+                "Ye result rule engine se aaya hai, AI ke andaaze se nahi.")
             return AssistantChatResponse(reply=reply, intent=intent, schemes=schemes, profile_used=profile_used, eligibility=result)
         else:
             reply = lang_text(request.language, "Tell me which scheme you mean, for example ‘Am I eligible for tractor subsidy?’", "किस योजना की पात्रता जाननी है बताएं, जैसे ‘क्या मैं ट्रैक्टर सब्सिडी के लिए पात्र हूं?’", "Kaunsi scheme ki eligibility check karni hai bataiye, jaise ‘Am I eligible for tractor subsidy?’")

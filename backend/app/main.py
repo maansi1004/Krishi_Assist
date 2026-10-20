@@ -9,6 +9,7 @@ from app.api.evaluation import router as evaluation_router
 from app.api.assistant import router as assistant_router
 from app.api.farmer_workspace import router as farmer_workspace_router, canonical_router as workflow_alias_router
 from app.api.reports import router as reports_router
+from app.api.matches import router as matches_router
 
 Base.metadata.create_all(bind=engine)
 app=FastAPI(title="KrishiAssist API",version="0.7.0")
@@ -21,6 +22,7 @@ app.include_router(assistant_router)
 app.include_router(farmer_workspace_router)
 app.include_router(workflow_alias_router)
 app.include_router(reports_router)
+app.include_router(matches_router)
 @app.get("/")
 def root(): return {"service":"KrishiAssist API","status":"ok","docs":"/docs"}
 

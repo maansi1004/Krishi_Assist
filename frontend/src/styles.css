@@ -30,3 +30,29 @@
 .questionsList label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:#34443c;font-weight:600}
 .questionsList select,.questionsList input{border:1px solid #d7e0d9;border-radius:7px;padding:10px 12px;font-weight:400;background:#fff;color:var(--ink);max-width:340px}
 .questionsProfile{margin:14px 0 0;font-size:13px;color:#506058;line-height:1.6}
+
+/* Round 3: My Matches + profile-complete banner */
+.completeBanner{margin:0 0 20px;padding:16px 18px;border:1px solid #efd7a6;border-radius:12px;background:#fff9e8;color:#5c4400}
+.completeBanner.done{border-color:#cfe5d4;background:#f1f8f3;color:#24573a;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.completeBanner p{margin:8px 0;font-size:14px;line-height:1.5}
+.completeBar{height:8px;border-radius:999px;background:#f0e2bd;margin:10px 0;overflow:hidden}
+.completeBar span{display:block;height:100%;background:#c18a18}
+.matchCounts{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 22px}
+.matchChip{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#eef2ef;color:#34443c;white-space:nowrap}
+.matchChip.eligible{background:#dff3e5;color:#1f6b3b}.matchChip.almost_eligible{background:#fff0c9;color:#7a5600}
+.matchChip.verification_required{background:#e5ecf8;color:#2b4a7d}.matchChip.not_eligible{background:#f8e1e1;color:#8a2f2f}
+.matchGroup{margin:0 0 28px}.matchGroup h3{margin:0 0 4px}.matchGroup h3 small{color:#66736c;font-weight:500}
+.matchGroupDesc{margin:0 0 12px;color:#66736c;font-size:14px}
+.matchGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0}
+.matchCard{border:1px solid #dfe8e1;border-radius:12px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:8px}
+.matchTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.matchTop small{display:block;color:#66736c;font-size:12px;margin-top:2px}
+.matchName{font-size:15px;line-height:1.35}
+.matchMeta{display:flex;flex-wrap:wrap;gap:6px 12px;margin:0;font-size:13px;color:#506058}
+.tagWarn{color:#7a5600;font-weight:700}.tagMuted{color:#8a948e}
+.matchReason{margin:0;font-size:13px;color:#8a2f2f;line-height:1.45}
+.matchMore{margin-top:8px}.matchMore summary{cursor:pointer;color:#2f6f4a;font-weight:600;font-size:14px}
+.matchError{color:#8a2f2f}
+.textBtn{cursor:pointer}
+.matchesLink{border:1px solid #cfe0d4;background:#fff;color:#216b3a;border-radius:999px;padding:8px 14px;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap}
+.matchesLink.active,.matchesLink:hover{background:#216b3a;color:#fff}
