@@ -8,13 +8,16 @@ Nothing is written to the evaluation history here (one click on a scheme does th
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends
+from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
 from app.auth.dependencies import current_user
 from app.db.session import get_db
 from app.engines.eligibility_engine import evaluate_scheme
+from app.engines.recommendation_engine import score_scheme
 from app.models.profile import FarmProfile
 from app.models.user import User
+from app.schemas.profile import FarmerProfile
 from app.services.profile_service import profile_completeness, profile_to_dict
 from app.services.scheme_service import load_schemes
 
@@ -64,6 +67,47 @@ def _summary(scheme: dict, result: dict, profile: dict) -> dict:
     }
 
 
+def build_matches(profile: dict, schemes: list[dict], profile_used: bool = True, need_text: str | None = None) -> dict:
+    """Run the rule engine for every scheme and group the answers.
+
+    If the farmer described a need, every item also gets a needScore (0-100, how well the
+    scheme fits the words they used) and the best fits are listed first in bestForNeed.
+    The need only changes the ORDER. It never changes an eligibility result.
+    """
+    groups: dict[str, list[dict]] = {status: [] for status in STATUS_ORDER}
+    if profile_used:
+        for scheme in schemes:
+            result = evaluate_scheme(scheme, profile)
+            item = _summary(scheme, result, profile)
+            item["needScore"] = score_scheme(scheme, need_text, profile) if need_text else 0
+            item["_sort"] = (-item["needScore"], -_state_fit(scheme, profile), scheme.get("status") != "active", -item["passed"], scheme["schemeCode"])
+            groups[result["status"]].append(item)
+        for items in groups.values():
+            items.sort(key=lambda i: i["_sort"])
+        order = {status: n for n, status in enumerate(STATUS_ORDER)}
+        best = []
+        if need_text:
+            candidates = [i for status in STATUS_ORDER[:3] for i in groups[status] if i["needScore"] >= 35]
+            candidates.sort(key=lambda i: (-i["needScore"], order[i["status"]], i["schemeCode"]))
+            best = [dict(i) for i in candidates[:5]]
+        for items in groups.values():
+            for i in items:
+                i.pop("_sort", None)
+        for i in best:
+            i.pop("_sort", None)
+    else:
+        best = []
+
+    return {
+        "profileUsed": profile_used,
+        "profileCompleteness": profile_completeness(profile, schemes),
+        "schemeCount": len(schemes),
+        "counts": {status: len(items) for status, items in groups.items()},
+        "groups": groups,
+        "bestForNeed": best,
+    }
+
+
 @router.get("/completeness")
 def completeness(user: User = Depends(current_user), db: Session = Depends(get_db)):
     profile = profile_to_dict(db.query(FarmProfile).filter_by(user_id=user.id).first())
@@ -73,25 +117,17 @@ def completeness(user: User = Depends(current_user), db: Session = Depends(get_d
 @router.get("")
 def my_matches(user: User = Depends(current_user), db: Session = Depends(get_db)):
     row = db.query(FarmProfile).filter_by(user_id=user.id).first()
-    profile = profile_to_dict(row)
-    schemes = load_schemes()
-    groups: dict[str, list[dict]] = {status: [] for status in STATUS_ORDER}
+    return build_matches(profile_to_dict(row), load_schemes(), profile_used=bool(row))
 
-    if row:
-        for scheme in schemes:
-            result = evaluate_scheme(scheme, profile)
-            item = _summary(scheme, result, profile)
-            item["_sort"] = (-_state_fit(scheme, profile), scheme.get("status") != "active", -item["passed"], scheme["schemeCode"])
-            groups[result["status"]].append(item)
-        for items in groups.values():
-            items.sort(key=lambda i: i["_sort"])
-            for i in items:
-                del i["_sort"]
 
-    return {
-        "profileUsed": bool(row),
-        "profileCompleteness": profile_completeness(profile, schemes),
-        "schemeCount": len(schemes),
-        "counts": {status: len(items) for status, items in groups.items()},
-        "groups": groups,
-    }
+class PreviewRequest(BaseModel):
+    profile: FarmerProfile
+    need_text: str | None = Field(default=None, max_length=1000)
+
+
+@router.post("/preview")
+def preview_matches(request: PreviewRequest, user: User = Depends(current_user)):
+    """Same grouped answer as GET /api/matches, but for a profile the farmer has just confirmed
+    on screen (not necessarily saved). Nothing is stored."""
+    need = (request.need_text or "").strip() or None
+    return build_matches(request.profile.model_dump(), load_schemes(), profile_used=True, need_text=need)

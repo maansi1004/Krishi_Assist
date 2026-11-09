@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.core.config import settings
 from app.db.session import Base, engine
 import app.models
 from app.api.schemes import router as schemes_router
@@ -10,10 +11,20 @@ from app.api.assistant import router as assistant_router
 from app.api.farmer_workspace import router as farmer_workspace_router, canonical_router as workflow_alias_router
 from app.api.reports import router as reports_router
 from app.api.matches import router as matches_router
+from app.api.audit import router as audit_router
+from app.api.need import router as need_router
+from app.api.admin import router as admin_router
 
 Base.metadata.create_all(bind=engine)
-app=FastAPI(title="KrishiAssist API",version="0.7.0")
-app.add_middleware(CORSMiddleware,allow_origins=["http://localhost:5173","http://127.0.0.1:5173","http://localhost:5174","http://127.0.0.1:5174"],allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
+# Load the administrator's scheme decisions (switched-off / verified schemes) into memory.
+from app.db.session import SessionLocal
+from app.services.scheme_admin import refresh_overrides
+with SessionLocal() as _db:
+    refresh_overrides(_db)
+# In production the interactive docs and the OpenAPI file are switched off.
+docs = {} if not settings.is_production else {"docs_url": None, "redoc_url": None, "openapi_url": None}
+app=FastAPI(title="KrishiAssist API",version="0.7.0",**docs)
+app.add_middleware(CORSMiddleware,allow_origins=settings.cors_origin_list,allow_credentials=True,allow_methods=["*"],allow_headers=["*"])
 app.include_router(schemes_router)
 app.include_router(auth_router)
 app.include_router(profile_router)
@@ -23,6 +34,9 @@ app.include_router(farmer_workspace_router)
 app.include_router(workflow_alias_router)
 app.include_router(reports_router)
 app.include_router(matches_router)
+app.include_router(audit_router)
+app.include_router(need_router)
+app.include_router(admin_router)
 @app.get("/")
 def root(): return {"service":"KrishiAssist API","status":"ok","docs":"/docs"}
 

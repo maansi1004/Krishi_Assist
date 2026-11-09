@@ -29,3 +29,11 @@ def current_user(credentials: HTTPAuthorizationCredentials | None = Depends(bear
 def optional_current_user(credentials: HTTPAuthorizationCredentials | None = Depends(bearer), db: Session = Depends(get_db)) -> User | None:
     """Return the logged-in farmer when a valid bearer token is supplied; allow public questions otherwise."""
     return _resolve_user(credentials, db)
+
+
+def require_admin(user: User = Depends(current_user)) -> User:
+    """Only accounts whose role is "admin" in the database. The role is read from the database
+    on every request, so removing admin rights takes effect immediately."""
+    if user.role != "admin":
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Administrator access is required")
+    return user

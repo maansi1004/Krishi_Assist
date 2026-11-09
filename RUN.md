@@ -82,3 +82,29 @@ Verify:
 - `http://127.0.0.1:8000/api/diagnostics`
 
 If these do not open, the backend is not running or port 8000 is occupied by another process.
+
+
+## After setup (new in this version)
+
+Check that every file is in place and the tests pass (from this folder):
+
+```powershell
+python check_files.py
+backend\.venv\Scripts\activate
+$env:PYTHONPATH="backend"
+pytest -q
+```
+
+Optional settings live in a `.env` file. Copy `.env.example` to `.env`, then set at least `JWT_SECRET`:
+
+```powershell
+python -c "import secrets; print(secrets.token_urlsafe(48))"
+```
+
+To become an administrator (the Admin page), register normally, then run in the `backend` folder with the environment active:
+
+```powershell
+python -m app.scripts.make_admin your-email@example.com
+```
+
+Then sign out and sign in again. More in `ADMIN_GUIDE.md` and `SECURITY_NOTES.md`.

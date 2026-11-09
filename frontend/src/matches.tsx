@@ -5,12 +5,12 @@ import React, { useEffect, useState } from 'react';
 
 type Lang = 'en' | 'hi' | 'hinglish';
 export type Completeness = { total: number; filled: number; percent: number; complete: boolean; missing: { field: string; label: string }[] };
-type Match = {
+export type Match = {
   schemeCode: string; name: string; state?: string | null; category?: string | null; status: string;
   unverifiedScheme: boolean; passed: number; total: number; reason?: string | null;
-  questionsToAnswer: number; profileFieldsMissing: string[]; otherState: boolean;
+  questionsToAnswer: number; profileFieldsMissing: string[]; otherState: boolean; needScore?: number;
 };
-type MatchesResponse = { profileUsed: boolean; profileCompleteness: Completeness; schemeCount: number; counts: Record<string, number>; groups: Record<string, Match[]> };
+export type MatchesResponse = { bestForNeed?: Match[]; profileUsed: boolean; profileCompleteness: Completeness; schemeCount: number; counts: Record<string, number>; groups: Record<string, Match[]> };
 
 const TXT: Record<Lang, Record<string, string>> = {
   en: {
@@ -28,7 +28,8 @@ const TXT: Record<Lang, Record<string, string>> = {
     dNOT_ELIGIBLE: 'A rule in your profile does not match.',
     rulesMet: '{a} of {b} rules met', answers: '{n} answers needed', unverified: 'Unverified data', otherState: 'Another state',
     view: 'View details →', unverifiedSection: 'Schemes with unverified data ({n})', notEligibleSection: 'Not eligible ({n})',
-    note: 'Matches come from the rule engine, not from AI. Always confirm with the official source before applying.'
+    note: 'Matches come from the rule engine, not from AI. Always confirm with the official source before applying.',
+    bestTitle: 'Best for your need', bestDesc: 'The schemes that fit the words you used best. Whether you qualify is decided by the rules, shown on each card.', describeNeed: 'Describe what you need'
   },
   hi: {
     navLabel: 'मेरी योजनाएं', title: 'आपके खेत के लिए मिलती योजनाएं',
@@ -45,7 +46,8 @@ const TXT: Record<Lang, Record<string, string>> = {
     dNOT_ELIGIBLE: 'आपकी प्रोफाइल का कोई नियम मेल नहीं खाता।',
     rulesMet: '{b} में से {a} नियम पूरे', answers: '{n} जवाब चाहिए', unverified: 'असत्यापित डेटा', otherState: 'दूसरा राज्य',
     view: 'विवरण देखें →', unverifiedSection: 'असत्यापित डेटा वाली योजनाएं ({n})', notEligibleSection: 'पात्र नहीं ({n})',
-    note: 'ये नतीजे नियम इंजन से आते हैं, AI से नहीं। आवेदन से पहले आधिकारिक स्रोत से ज़रूर जांचें।'
+    note: 'ये नतीजे नियम इंजन से आते हैं, AI से नहीं। आवेदन से पहले आधिकारिक स्रोत से ज़रूर जांचें।',
+    bestTitle: 'आपकी ज़रूरत के लिए सबसे अच्छी', bestDesc: 'आपके शब्दों से सबसे ज़्यादा मेल खाने वाली योजनाएं। आप पात्र हैं या नहीं, यह नियम तय करते हैं और हर कार्ड पर दिखता है।', describeNeed: 'अपनी ज़रूरत बताएं'
   },
   hinglish: {
     navLabel: 'Meri Matches', title: 'Aapke khet ke liye matching schemes',
@@ -62,10 +64,11 @@ const TXT: Record<Lang, Record<string, string>> = {
     dNOT_ELIGIBLE: 'Aapki profile ka koi rule match nahi karta.',
     rulesMet: '{b} mein se {a} rules poore', answers: '{n} jawab chahiye', unverified: 'Unverified data', otherState: 'Dusra rajya',
     view: 'Details dekhein →', unverifiedSection: 'Unverified data wali schemes ({n})', notEligibleSection: 'Eligible nahi ({n})',
-    note: 'Ye results rule engine se aate hain, AI se nahi. Apply karne se pehle official source se zaroor confirm karein.'
+    note: 'Ye results rule engine se aate hain, AI se nahi. Apply karne se pehle official source se zaroor confirm karein.',
+    bestTitle: 'Aapki zaroorat ke liye sabse achhi', bestDesc: 'Aapke shabdon se sabse zyada match karne wali schemes. Aap eligible hain ya nahi, ye rules tay karte hain aur har card par dikhta hai.', describeNeed: 'Apni zaroorat batayein'
   }
 };
-const FIELD_LABELS: Record<Lang, Record<string, string>> = {
+export const FIELD_LABELS: Record<Lang, Record<string, string>> = {
   en: {},
   hi: { state: 'राज्य', farmer_type: 'किसान का प्रकार', land_size_hectares: 'ज़मीन (हेक्टेयर)', age: 'उम्र', social_category: 'सामाजिक श्रेणी', primary_crop: 'मुख्य फसल', bank_account_status: 'बैंक खाता', kcc_holder: 'किसान क्रेडिट कार्ड', years_of_cultivation: 'खेती के साल' },
   hinglish: { state: 'Rajya', farmer_type: 'Kisan ka type', land_size_hectares: 'Zameen (hectare)', age: 'Umr', social_category: 'Social category', primary_crop: 'Main fasal', bank_account_status: 'Bank account', kcc_holder: 'Kisan Credit Card', years_of_cultivation: 'Kheti ke saal' }
@@ -121,57 +124,25 @@ function MatchCard({ m, lang, nameOf, onOpen }: { m: Match; lang: Lang; nameOf: 
   );
 }
 
-/* ---------- The page ---------- */
-export function MatchesPage({ api, token, lang, savedTick, nameOf, onOpenScheme, onOpenProfile, onLogin }: {
-  api: string; token: string; lang: Lang; savedTick: number;
-  nameOf: (code: string, fallback: string) => string;
-  onOpenScheme: (code: string) => void; onOpenProfile: () => void; onLogin: () => void;
+/* ---------- The grouped results (used by My Matches and by the need flow) ---------- */
+export function MatchResults({ data, lang, nameOf, onOpen }: {
+  data: MatchesResponse; lang: Lang; nameOf: (code: string, fallback: string) => string; onOpen: (code: string) => void;
 }) {
-  const [data, setData] = useState<MatchesResponse | null>(null);
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState('');
-
-  const load = () => {
-    if (!token) return;
-    setBusy(true); setError('');
-    fetch(`${api}/api/matches`, { headers: { Authorization: `Bearer ${token}` } })
-      .then(async r => { const d = await r.json(); if (!r.ok) throw new Error(d.detail || mx(lang, 'error')); setData(d); })
-      .catch(e => setError(e.message || mx(lang, 'error')))
-      .finally(() => setBusy(false));
-  };
-  useEffect(load, [token, savedTick]);
-
-  const head = (
-    <div className="pageIntro">
-      <div>
-        <p className="eyebrow dark">{mx(lang, 'navLabel').toUpperCase()}</p>
-        <h2>{mx(lang, 'title')}</h2>
-        <p>{mx(lang, 'sub')}</p>
-      </div>
-      {token && <button type="button" className="outline" onClick={load} disabled={busy}>{busy ? mx(lang, 'loading') : mx(lang, 'refresh')}</button>}
-    </div>
-  );
-
-  if (!token) return <section className="section page">{head}<p>{mx(lang, 'signIn')}</p><button className="primary" onClick={onLogin}>{mx(lang, 'signInBtn')}</button></section>;
-  if (error) return <section className="section page">{head}<p className="matchError">{error}</p></section>;
-  if (!data) return <section className="section page">{head}<p>{mx(lang, 'loading')}</p></section>;
-  if (!data.profileUsed) return (
-    <section className="section page">{head}
-      <p>{mx(lang, 'noProfile')}</p>
-      <button className="primary" onClick={onOpenProfile}>{mx(lang, 'openProfile')}</button>
-    </section>
-  );
-
-  const card = (m: Match) => <MatchCard key={m.schemeCode} m={m} lang={lang} nameOf={nameOf} onOpen={onOpenScheme} />;
+  const card = (m: Match) => <MatchCard key={m.schemeCode} m={m} lang={lang} nameOf={nameOf} onOpen={onOpen} />;
   const order = ['ELIGIBLE', 'ALMOST_ELIGIBLE', 'VERIFICATION_REQUIRED', 'NOT_ELIGIBLE'];
-
   return (
-    <section className="section page">
-      {head}
-      <CompletenessBanner completeness={data.profileCompleteness} lang={lang} onOpenProfile={onOpenProfile} />
+    <>
       <div className="matchCounts">
         {order.map(s => <span key={s} className={`matchChip ${s.toLowerCase()}`}>{mx(lang, s)}: {data.counts[s] ?? 0}</span>)}
       </div>
+
+      {(data.bestForNeed || []).length > 0 && (
+        <div className="matchGroup bestGroup">
+          <h3>{mx(lang, 'bestTitle')}</h3>
+          <p className="matchGroupDesc">{mx(lang, 'bestDesc')}</p>
+          <div className="matchGrid">{(data.bestForNeed || []).map(card)}</div>
+        </div>
+      )}
 
       {order.map(status => {
         const items = data.groups[status] || [];
@@ -195,6 +166,61 @@ export function MatchesPage({ api, token, lang, savedTick, nameOf, onOpenScheme,
         );
       })}
       <p className="sourceNote">{mx(lang, 'note')}</p>
+    </>
+  );
+}
+
+/* ---------- The page ---------- */
+export function MatchesPage({ api, token, lang, savedTick, nameOf, onOpenScheme, onOpenProfile, onLogin, onOpenNeed }: {
+  api: string; token: string; lang: Lang; savedTick: number;
+  nameOf: (code: string, fallback: string) => string;
+  onOpenScheme: (code: string) => void; onOpenProfile: () => void; onLogin: () => void; onOpenNeed?: () => void;
+}) {
+  const [data, setData] = useState<MatchesResponse | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+
+  const load = () => {
+    if (!token) return;
+    setBusy(true); setError('');
+    fetch(`${api}/api/matches`, { headers: { Authorization: `Bearer ${token}` } })
+      .then(async r => { const d = await r.json(); if (!r.ok) throw new Error(d.detail || mx(lang, 'error')); setData(d); })
+      .catch(e => setError(e.message || mx(lang, 'error')))
+      .finally(() => setBusy(false));
+  };
+  useEffect(load, [token, savedTick]);
+
+  const head = (
+    <div className="pageIntro">
+      <div>
+        <p className="eyebrow dark">{mx(lang, 'navLabel').toUpperCase()}</p>
+        <h2>{mx(lang, 'title')}</h2>
+        <p>{mx(lang, 'sub')}</p>
+      </div>
+      {token && (
+        <div className="pageActions">
+          {onOpenNeed && <button type="button" className="primary" onClick={onOpenNeed}>{mx(lang, 'describeNeed')}</button>}
+          <button type="button" className="outline" onClick={load} disabled={busy}>{busy ? mx(lang, 'loading') : mx(lang, 'refresh')}</button>
+        </div>
+      )}
+    </div>
+  );
+
+  if (!token) return <section className="section page">{head}<p>{mx(lang, 'signIn')}</p><button className="primary" onClick={onLogin}>{mx(lang, 'signInBtn')}</button></section>;
+  if (error) return <section className="section page">{head}<p className="matchError">{error}</p></section>;
+  if (!data) return <section className="section page">{head}<p>{mx(lang, 'loading')}</p></section>;
+  if (!data.profileUsed) return (
+    <section className="section page">{head}
+      <p>{mx(lang, 'noProfile')}</p>
+      <button className="primary" onClick={onOpenProfile}>{mx(lang, 'openProfile')}</button>
+    </section>
+  );
+
+  return (
+    <section className="section page">
+      {head}
+      <CompletenessBanner completeness={data.profileCompleteness} lang={lang} onOpenProfile={onOpenProfile} />
+      <MatchResults data={data} lang={lang} nameOf={nameOf} onOpen={onOpenScheme} />
     </section>
   );
 }
