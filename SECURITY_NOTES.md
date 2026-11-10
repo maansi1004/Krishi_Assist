@@ -33,3 +33,18 @@ What the project protects today, and what it does not. Useful for the report and
 - Everything the AI returns is checked against fixed allowed values and number ranges. The sentence is treated as data, not instructions.
 - The sentence itself is not stored in the audit trail, only which kinds of details were found.
 - Each farmer may use it 30 times per hour.
+
+## Document uploads
+In place:
+- Only the signed-in farmer can see, download, change or delete their own documents. Someone else's document answers "not found", exactly like a document that does not exist.
+- A file is accepted only if its real content is a PDF, JPEG or PNG (checked from the first bytes). The file name and the type the browser claims are ignored, so a text or program file renamed to `.pdf` is refused.
+- Size is limited while the file is being received (5 MB by default), so a huge upload cannot fill the server's memory. Each farmer also has limits on the number of files (25), total size (50 MB) and uploads per hour (30). Exact duplicate files are refused.
+- Files are stored outside the website files, under random names the server makes (`storage/uploads/<user id>/<random>.pdf`). The name the farmer typed is never used in a path, and every path is checked to stay inside the upload folder. A file is written completely or not at all.
+- Files are only served by the API, with `nosniff`, `no-store` and frame-blocking headers.
+- The audit trail records what kind of document and how big, never the file name, note or contents.
+
+Known limits (be upfront about these):
+- Files are stored on the server's disk **without encryption**. Anyone with access to the server's disk can read them. Encryption at rest or cloud storage would be added in `services/document_storage.py`.
+- There is no antivirus scan. A PDF can contain active content; browsers open PDFs in their own sandbox.
+- Storage is local to one server. Back up the `storage` folder together with the database.
+- There is no "delete my account" feature yet, so documents stay until the farmer deletes them.

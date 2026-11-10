@@ -5,3 +5,4 @@ from .saved_scheme import SavedScheme
 from .application import Application
 from .audit import AuditLog
 from .scheme_override import SchemeOverride
+from .document import Document, DocumentChoice

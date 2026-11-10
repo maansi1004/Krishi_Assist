@@ -24,6 +24,12 @@ class Settings(BaseSettings):
     login_window_minutes: int = 15
     register_max_per_hour: int = 10
     need_max_per_hour: int = 30
+    # Document uploads (see services/document_storage.py)
+    upload_dir: str = "storage/uploads"
+    max_upload_mb: int = 5
+    max_documents_per_user: int = 25
+    max_storage_mb_per_user: int = 50
+    upload_max_per_hour: int = 30
     openrouter_api_key: str = ""
     llm_model: str = ""
     model_config = SettingsConfigDict(env_file=PROJECT_ROOT / ".env", extra="ignore")
@@ -45,6 +51,12 @@ class Settings(BaseSettings):
         if self.app_env.strip().lower() == "production" and (self.jwt_secret == DEFAULT_DEV_SECRET or len(self.jwt_secret) < 32):
             raise ValueError("APP_ENV=production needs JWT_SECRET set to a random value of at least 32 characters.")
         return self
+
+    @property
+    def upload_path(self) -> Path:
+        """Where uploaded files are stored. A relative folder means 'inside the project folder'."""
+        p = Path(self.upload_dir)
+        return (p if p.is_absolute() else PROJECT_ROOT / p).resolve()
 
     @property
     def is_production(self) -> bool:

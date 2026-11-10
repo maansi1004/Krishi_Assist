@@ -15,12 +15,17 @@ _tmp = tempfile.mkdtemp(prefix="krishiassist_tests_")
 atexit.register(shutil.rmtree, _tmp, ignore_errors=True)
 
 os.environ["DATABASE_URL"] = f"sqlite:///{Path(_tmp, 'test.db').as_posix()}"
+os.environ["UPLOAD_DIR"] = str(Path(_tmp, "uploads").as_posix())
 os.environ["APP_ENV"] = "development"
 os.environ["JWT_SECRET"] = "test-secret-for-the-test-suite-only-0123456789"
 os.environ["LOGIN_MAX_FAILURES"] = "5"
 os.environ["LOGIN_MAX_FAILURES_PER_IP"] = "20"
 os.environ["LOGIN_WINDOW_MINUTES"] = "15"
 os.environ["REGISTER_MAX_PER_HOUR"] = "10"
+os.environ["MAX_UPLOAD_MB"] = "5"
+os.environ["MAX_DOCUMENTS_PER_USER"] = "25"
+os.environ["MAX_STORAGE_MB_PER_USER"] = "50"
+os.environ["UPLOAD_MAX_PER_HOUR"] = "30"
 
 import pytest  # noqa: E402
 

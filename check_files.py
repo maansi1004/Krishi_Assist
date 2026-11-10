@@ -60,6 +60,29 @@ CHECKS = {
     "tests/test_phase8_audit.py": (["test_exactly_the_seven_statuses_from_the_report_are_allowed", "def trail("], []),
 }
 
+# --- document upload (storage) files ---
+CHECKS.update({
+    "backend/app/models/document.py": (["class Document(", "class DocumentChoice("], []),
+    "backend/app/services/upload_checks.py": (["def sniff_type(", "def clean_filename("], []),
+    "backend/app/services/document_storage.py": (["class LocalStorage", "NAME_RE"], []),
+    "backend/app/services/document_types.py": (["def suggest_type(", "def used_by_schemes("], []),
+    "backend/app/services/how_to_get.py": (["def how_to_get(", "GUIDE = {"], []),
+    "backend/app/api/documents.py": (['APIRouter(prefix="/api/documents"', "async def upload(", "def set_plan_choice("], []),
+    "frontend/src/documents.tsx": (["export function DocumentsPage", "export function DocumentPlan", "export function ProfileDocuments", "export function DocumentSummary"], []),
+    "tests/test_phase12_documents.py": (["test_the_real_content_decides_the_type_not_the_name_or_the_header"], []),
+    "tests/test_phase13_document_plan.py": (["test_i_dont_have_it_yet_creates_next_steps_in_all_three_languages"], []),
+})
+for _path, _marks in {
+    "backend/app/main.py": ["include_router(documents_router)"],
+    "backend/app/models/__init__.py": ["Document, DocumentChoice"],
+    "backend/app/core/config.py": ["upload_path", "max_upload_mb"],
+    "backend/app/services/rate_limit.py": ["upload_limiter"],
+    "frontend/src/main.tsx": ["DocumentsPage", "DocumentPlan", "DocumentSummary", "ProfileDocuments"],
+    "tests/conftest.py": ["UPLOAD_DIR"],
+    ".env.example": ["UPLOAD_DIR="],
+}.items():
+    CHECKS[_path][0].extend(_marks)
+
 bad = 0
 for rel, (must, must_not) in CHECKS.items():
     path = BASE / rel

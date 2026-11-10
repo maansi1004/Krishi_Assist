@@ -102,3 +102,42 @@
 .adminResult ul{margin:8px 0 0;padding-left:20px}
 .adminResult.ok{background:#eaf6ee;border:1px solid #bfe0c9;color:#1f6b3b}.adminResult.bad{background:#fdeeee;border:1px solid #efc4c4;color:#8a2f2f}
 @media(max-width:700px){.historyRow{grid-template-columns:1fr}.logList li{flex-direction:column;gap:4px}}
+
+/* Documents: upload, starter list, plan for a scheme */
+.dv-privacy{margin:0 0 18px;padding:12px 16px;border-radius:10px;background:#eef6ef;color:#25472f;font-size:14px;line-height:1.5}
+.dv-card{margin:0 0 18px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.dv-card h3{margin:0 0 6px}.dv-card p{margin:0 0 12px;color:var(--muted)}
+.dv-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;align-items:end}
+.dv-form label,.dv-type{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600}
+.dv-form select,.dv-form input,.dv-type select{border:1px solid #cdd8cf;border-radius:8px;padding:9px 10px;background:#fff;font-size:14px;min-height:42px}
+.dv-formfile{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.dv-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.dv-row{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;flex-wrap:wrap}
+.dv-main{flex:1;min-width:220px;display:flex;flex-direction:column;gap:4px}.dv-main small{color:var(--muted);font-size:12.5px}
+.dv-type{margin-top:6px;font-weight:500;font-size:12px}.dv-type select{min-height:34px;padding:5px 8px}
+.dv-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.dv-pick{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 16px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;position:relative;overflow:hidden;border:1px solid #cdd8cf;background:#fff;color:var(--green);min-height:42px}
+.dv-pick.primary{background:var(--green);color:#fff;border-color:var(--green)}.dv-pick.disabled{opacity:.55;cursor:not-allowed}
+.dv-pick input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.dv-pick:focus-within{outline:3px solid #f4c95d;outline-offset:2px}
+.dv-danger{background:#fff;border:1px solid #e3b4b0;color:#a33a32;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;min-height:42px}
+.dv-link{background:none;border:0;color:var(--green);font-weight:700;cursor:pointer;padding:6px 0;text-align:left}
+.dv-usage{font-size:13px;color:var(--muted)}
+.dv-chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#eef1ed;color:#3a463d}
+.dv-chip.ok{background:#ddf0e3;color:#14502d}.dv-chip.warn{background:#fff1c7;color:#6f4b00}.dv-chip.ask{background:#e1ecf8;color:#1f4676}.dv-chip.mute{background:#eceeec;color:#59635c}
+.dv-chips{margin-top:4px}
+.documentPlan .dv-group{margin:14px 0}.documentPlan .dv-group h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.dv-summary{margin:8px 0 4px}
+.dv-how{margin-top:6px;font-size:14px}.dv-how summary{cursor:pointer;color:var(--green);font-weight:600}.dv-how ol{margin:8px 0 0;padding-left:20px;display:grid;gap:6px}
+.dv-item.to_arrange{border-color:#efd7a6;background:#fffaf0}.dv-item.ready{border-color:#bfe0c9;background:#f6fbf7}
+.dv-next{margin-top:20px;padding:16px;border-radius:12px;background:#f4f8f4;border:1px solid #d6e5d4}
+.dv-next h4{margin:0 0 10px}
+.dv-step{padding:12px 14px;margin:0 0 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.dv-step h5{margin:0 0 8px;font-size:15px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}.dv-step h5 small{color:var(--muted);font-weight:500}
+.dv-num{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-size:13px}
+.dv-step ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:14.5px}
+.dv-links{margin:10px 0 0;display:flex;gap:14px;flex-wrap:wrap}.dv-links a{font-weight:700}
+.dv-statenote{margin:6px 0 0;font-size:13px;color:var(--muted)}
+.dv-summaryline{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:14px 0;padding:12px 14px;border-radius:10px;background:#f4f8f4;border:1px solid #d6e5d4;font-size:14px}
+.dv-bar{flex:1;min-width:80px;height:8px;border-radius:999px;background:#dfe9de;overflow:hidden}.dv-bar span{display:block;height:100%;background:var(--green)}
+.dv-profile{padding-top:0}

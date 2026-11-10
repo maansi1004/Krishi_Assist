@@ -75,4 +75,5 @@ login_limiter = FailureLimiter(settings.login_max_failures, window)          # p
 ip_limiter = FailureLimiter(settings.login_max_failures_per_ip, window)      # per address (e-mail spraying)
 register_limiter = FailureLimiter(settings.register_max_per_hour, 3600)      # account creation per address
 need_limiter = FailureLimiter(settings.need_max_per_hour, 3600)           # AI need analyses per farmer
-ALL_LIMITERS = (login_limiter, ip_limiter, register_limiter, need_limiter)
+upload_limiter = FailureLimiter(settings.upload_max_per_hour, 3600)         # file uploads per farmer
+ALL_LIMITERS = (login_limiter, ip_limiter, register_limiter, need_limiter, upload_limiter)
